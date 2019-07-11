@@ -4,10 +4,9 @@ from .models import Post
 
 
 def index(request):
-    # return render(request, "blog/post_list.html", {})
-
-    #posts = Post.objects.filter(published_date__lte = timezone.now)
+    
     return render(request, "blog/index.html", {})
 
-
+def find_an_adventure(request):
+    return render(request, "blog/find_adventure.html", {})
 
