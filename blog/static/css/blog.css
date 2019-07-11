@@ -1,0 +1,5 @@
+/* changes color for h1 and h2 tags to color of choice */
+
+h1 a, h2 a {
+    color: #C25100;
+}
