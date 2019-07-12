@@ -1,37 +1,20 @@
+{% extends "index.html" %}
 {% load static %}
+
+
 <html>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        
+    {% block content %}
+        <head>
+            
+            <title>About Us</title>
 
-    <head>
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        </head>
 
-        <title>About Us</title>
+        <body>
+            <div>
+                 <h1><a href="/">About Us</a></h1>
 
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-
-        <div class="container">
-            <div class="btn-group-horizontal">
-                
-                <a class="btn btn-primary" href="/home">Home</a>
-                
-                <a class="btn btn-primary" href="/home">Adventure</a>
-
-                <a class="btn btn-primary" href="/home">About Us</a>
-
-                <input type="text" placeholder="Search..">
-
-            </div>
-        </div>
-        <link rel="stylesheet" href="{% static 'search_bar.css' %}">
-    </head>
-
-
-    <body>
-        <div>
-            <h1><a href="/">About Us</a></h1>
-        </div>
-    </body>
+        </body>
+    {% endblock content %}
 </html>

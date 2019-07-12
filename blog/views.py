@@ -9,14 +9,14 @@ def index(request):
 
 
 def find_an_adventure(request):
-    context={
-        "page": "Find an Adventure",
-    }
-    return render(request, "find_adventure.html", context)
+    
+    return render(request, "find_adventure.html", {})
 
 
 def home(request):
-    context={
-        "page": "Home",
-    }
-    return render(request, "home.html", context)
+    
+    return render(request, "home.html", {})
+
+def about_us(request):
+    
+    return render(request, "about_us.html", {})
