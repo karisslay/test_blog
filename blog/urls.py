@@ -12,4 +12,6 @@ urlpatterns = [
 
     path("aboutus/", views.about_us, name = "about us"),
 
+    path("gmasp/", views.gmasp, name = "map"),
+    
 ]

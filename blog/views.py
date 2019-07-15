@@ -21,3 +21,8 @@ def home(request):
 def about_us(request):
     
     return render(request, "about_us.html", {})
+
+def gmasp(request):
+
+    return render(request, "gmasp.html", {})
+
