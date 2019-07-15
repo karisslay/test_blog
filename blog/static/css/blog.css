@@ -6,42 +6,32 @@ h1 a, h2 a {
 
 
 .navbar-custom {
-    background-color: #ff5500;
+    background-color: #003366;
 }
 /* change the brand and text color */
 .navbar-custom .navbar-brand,
 .navbar-custom .navbar-text {
-    color: rgba(255,255,255,.8);
+    color: #cccccc;
 }
 /* change the link color */
 .navbar-custom .navbar-nav .nav-link {
-    color: rgba(255,255,255,.5);
+    color: #cccccc;
 }
 /* change the color of active or hovered links */
 .navbar-custom .nav-item.active .nav-link,
 .navbar-custom .nav-item:hover .nav-link {
-    color: #ffffff;
+    color: #003366;
 }
 
-/* .navbar {
-    background-color: red !important
-} */
-
-
-/* .navbar-custom {
+/* change the link color and padding  */
+.navbar-custom .navbar-nav .nav-link {
     color: #cccccc;
-    background-color: #003366;
-} */
+    padding: .75rem 1rem;
+}
 
-/* .navbar-custom {
-    background-color: #003366;
-    
-} */
-
-/* .nav.navbar-nav.navbar-right li a span{
-    color: red; */
-/* } */
-
-/* .navbar-custom .navbar-nav .nav-link {
-    color: #cccccc;
-} */
+/* change the color and background color of active links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+    color: #003366;
+    background-color: #cccccc;
+}
