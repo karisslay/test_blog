@@ -3,3 +3,45 @@
 h1 a, h2 a {
     color: #003366;
 }
+
+
+.navbar-custom {
+    background-color: #ff5500;
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: rgba(255,255,255,.8);
+}
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+    color: rgba(255,255,255,.5);
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+    color: #ffffff;
+}
+
+/* .navbar {
+    background-color: red !important
+} */
+
+
+/* .navbar-custom {
+    color: #cccccc;
+    background-color: #003366;
+} */
+
+/* .navbar-custom {
+    background-color: #003366;
+    
+} */
+
+/* .nav.navbar-nav.navbar-right li a span{
+    color: red; */
+/* } */
+
+/* .navbar-custom .navbar-nav .nav-link {
+    color: #cccccc;
+} */
