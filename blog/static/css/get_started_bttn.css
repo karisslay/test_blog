@@ -2,7 +2,8 @@
     font-family: "Quicksand";
 	background-color: #992600;
     border-color: #992600;
-    color: #cccccc
+    color: #cccccc;
+    padding: 1em 3em; 
 }
 
 
@@ -24,7 +25,5 @@
     justify-content: center;
   }
 
-  body {
-      margin: 5em, 5em;
-  }
+  
   
