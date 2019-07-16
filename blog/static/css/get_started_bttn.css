@@ -1,0 +1,30 @@
+.btn-primary.custom-btn {
+	background-color: #992600;
+    border-color: #992600;
+    color: #cccccc
+}
+
+/* .button {
+    font: Quicksand;
+    text-decoration: none;
+    background-color: #992600;
+    color: #cccccc;
+    /* padding: 2px 6px 2px 6px;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #CCCCCC; 
+  } */
+
+  /* a:link {
+    background-color: #992600;
+    color: #cccccc;
+    padding: 1em 1.5em;
+    text-decoration: none; */
+    /* text-transform: uppercase; */
+  }
+  
+  /* a:hover {
+    background-color: #555;
+  }
+   */
