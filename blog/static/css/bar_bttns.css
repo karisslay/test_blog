@@ -1,0 +1,28 @@
+.bar_btn_custom {
+    font-family: "Quicksand";
+	background-color: #b3dbff;
+    border-color: #b3dbff;
+    color: #003366;
+    padding: 1em 3em; 
+}
+
+
+.bar_btn_custom:active{
+    font-family: "Quicksand";
+    background-color: #99cfff;
+    color: #003366;
+}
+
+.bar_btn_custom:hover{
+    font-family: "Quicksand";
+    background-color: #99cfff;
+    color: #003366;
+}
+
+
+/* .get_started_container {
+    display: flex;
+    justify-content: center;
+  } */
+
+  
