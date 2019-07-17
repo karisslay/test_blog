@@ -1,0 +1,24 @@
+.find_r_button {
+    font-family: "Quicksand";
+	background-color: #992600;
+    border-color: #992600;
+    color: #cccccc;
+    padding: 1em 3em; 
+}
+
+.find_r_button:active{
+    font-family: "Quicksand";
+    background-color: #cc3300;
+    color: #cccccc;
+}
+
+.find_r_button:hover{
+    font-family: "Quicksand";
+    background-color: #cc3300;
+    color: #cccccc;
+}
+
+.find_r_container {
+    display: flex;
+    justify-content: center;
+  }
