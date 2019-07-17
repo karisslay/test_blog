@@ -14,43 +14,44 @@
         </head>
 
         <script>
-            
-            // window.addEventListener("click", getLocation)
-            document.ready(load)
+            document.addEventListener("DOMContentLoaded", load);
 
             var map
             var user_latitude 
             var user_longitude 
-            var end_destination = 'Los Angeles'
+            var pos_end_dest
+            var request_object = {
+                address: 'Los Angeles ',
+            }
 
             function load() {
                 getLocation()
             }
 
+            function g_code() {                                                  //gets coords of destination//
+                // pos_end_dest = google.maps.Geocoder.geocode(request_object)
+            }
+
             function getLocation() {                                        //if: successful, calls getPosition, else: gives alert//
-            // Check whether browser supports Geolocation API or not
                 if (navigator.geolocation) { // Supported
                     navigator.geolocation.getCurrentPosition(getPosition) 
-                    var pos = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
-                    }
-
-                    infoWindow.setPosition(pos);
-                    infoWindow.setContent('Location found.');
-                    infoWindow.open(map);
-                    map.setCenter(pos);
                 } else { // Not supported
                     alert("Oops! This browser does not support HTML Geolocation.");
                 }
             }
 
             function getPosition(position) {                                        //gets position of user from browser //
-                console.log(position);
-
                 user_latitude = position.coords.latitude;
                 user_longitude = position.coords.longitude;
 
+                const pos = {
+                    lat: user_latitude,
+                    lng: user_longitude,
+                }
+
+                console.log(pos)
+
+                map.setCenter(pos);
             }
 
             function myMap() {
@@ -62,18 +63,23 @@
                     zoom: 14,
                 };
 
+                const geocoder = new google.maps.Geocoder()
+
+                pos_end_dest = geocoder.geocode(request_object)
+
                 var marker = new google.maps.Marker({                                       //makes marker//
-                    position: document.getElementById(end_destination).value,
-                    title: end_destination
+                    position: pos_end_dest,
+                    title: request_object["address"],
                 });
             
+                console.log("myMap")
                 map = new google.maps.Map(document.getElementById("googleMap"), mapProp);   //makes map//
                 marker.setMap(map);                                                         //puts marker on map//
             }
 
             function calcRoute() {                                                          //calculates route//
                 var start = google.maps.LatLng(user_latitude, user_longitude);
-                var end = document.getElementById(end_destination).value;
+                var end = pos_end_dest;
                 var request = {                                                         // route calculating options//
                     origin: start,
                     destination: end,
@@ -85,6 +91,8 @@
 
                 };
 
+                g_code(pos_end_dest)
+
                 directionsService.route(request, function(result, status) {
                     if (status == 'OK') {
                     directionsDisplay.setDirections(result);                            //displays directions?? //
@@ -95,22 +103,16 @@
 
         </script>
 
-        
         <!-- gets info from google -->
         <script 
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBatSFsLO7FcTGtpxjP7FcAwKaevJb1N_k&callback=myMap"
-            type="text/javascript" 
         >
         </script>
-
 
         <!-- calculates route when button is pressed -->  
         <div class="btn find_r_container"> 
             <button type="button" onclick="calcRoute()" class="btn find_r_button">Find your route</button>
-           
         </div>
-        
-
     </body>
 
     {% endblock content %}
