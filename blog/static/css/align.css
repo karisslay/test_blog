@@ -2,6 +2,7 @@ img.align_left {
     display: flex;
     vertical-align: auto;
     flex-direction: column;
+    margin-left: 1em;
     
     
 
@@ -15,6 +16,7 @@ img.align_right {
     flex-direction: column;
     position: relative;
     top: -50px;
+    margin-right: 1em;
     
 }
 
