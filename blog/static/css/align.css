@@ -1,0 +1,27 @@
+img.align_left {
+    display: flex;
+    vertical-align: auto;
+    flex-direction: column;
+    
+    
+
+}
+
+img.align_right {
+
+    display: flex;
+    margin-left: auto;
+    vertical-align: auto;
+    flex-direction: column;
+    position: relative;
+    top: -50px;
+    
+}
+
+
+img.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
