@@ -39,4 +39,9 @@ h1 a, h2 a {
 
 .navbar a{
     font-family: Quicksand !important;
+    /* margin-bottom: 1em; */
 }
+
+/* .navbar_padding {
+    margin-bottom: 1em;
+} */

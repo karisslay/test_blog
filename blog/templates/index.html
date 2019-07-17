@@ -10,6 +10,7 @@
 
     <head>
         <link rel="stylesheet" href="{% static 'css/header.css' %}">
+        <!-- <link rel="stylesheet" type="text/css" href="/static/css/margins.css" /> -->
 
         <title>Dart</title>
 
@@ -17,29 +18,31 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="{% static 'css/header.css' %}">
 
-        <div class="container-fluid">
-
-            <nav class="navbar navbar-custom navbar-expand-sm">
-                
-                <ul class="navbar-nav">
-
-                    <li class="nav-item">
-                    <a class="nav-link" href="/home">Home</a>
-                    </li>
-
-                    <li class="nav-item">
-                    <a class="nav-link" href="/findadventure/">Find an Adventure!</a>
-                    </li>
-
-                    <li class="nav-item">
-                    <a class="nav-link" href="/aboutus">About Us</a>
-                    </li>
-                    
-                </ul>
-            </nav>
-        </div>
+        
     
     <body style="background-color: #e6f3ff">
+
+            <div class="container-fluid">
+
+                <nav class="navbar navbar-custom navbar-expand-sm">
+                    
+                    <ul class="navbar-nav">
+    
+                        <li class="nav-item">
+                        <a class="nav-link" href="/home">Home</a>
+                        </li>
+    
+                        <li class="nav-item">
+                        <a class="nav-link" href="/findadventure/">Find an Adventure!</a>
+                        </li>
+    
+                        <li class="nav-item">
+                        <a class="nav-link" href="/aboutus">About Us</a>
+                        </li>
+                        
+                    </ul>
+                </nav>
+            </div>
 
         {% block content %}
 
