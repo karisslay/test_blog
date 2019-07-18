@@ -1,6 +1,6 @@
 {% extends "index.html" %}
 {% load static %}
-
+<!-- AIzaSyBatSFsLO7FcTGtpxjP7FcAwKaevJb1N_k -->
 <html>
     {% block content %}
     <body>
@@ -81,14 +81,17 @@
 
             function geocide() {
                 const geocoder = new google.maps.Geocoder()
+                
 
                 pos_end_dest = geocoder.geocode(request_object)                          //gets coords of destination//
-            
+               
+                // geo_result = geocoder.result(request_object)
                 console.log(pos_end_dest)
+                console.log("b")
 
             }
 
-            
+
             function calcRoute() {         
                 var directionsService = new google.maps.DirectionsService();
                 var directionsDisplay = new google.maps.DirectionsRenderer();            //calculates route??//
@@ -114,21 +117,32 @@
                 directionsService.route(request, function(result, status) {
                     if (status == 'OK') {
                     console.log("directions");
+                    directionsDisplay.setMap(map);
                     directionsDisplay.setDirections(result);                            //displays directions?? //
+
                     }
                     else {
                         console.log("failed");
                     }
                 });
+                
             }
 
         </script>
 
         <!-- gets info from google -->
         <script 
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBatSFsLO7FcTGtpxjP7FcAwKaevJb1N_k&callback=myMap"
+        src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBatSFsLO7FcTGtpxjP7FcAwKaevJb1N_k&callback=myMap" 
+        type="text/javascript"
         >
         </script>
+
+        <!-- <script 
+        src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBatSFsLO7FcTGtpxjP7FcAwKaevJb1N_k&callback=calcRoute" 
+        type="text/javascript"
+        >
+        </script> -->
+
 
         <!-- calculates route when button is pressed -->  
         <div class="btn find_r_container"> 
