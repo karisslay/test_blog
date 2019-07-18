@@ -27,11 +27,42 @@
             <!-- gets css files for bar buttons -->
             <link rel="stylesheet" type="text/css" href="/static/css/bar_bttns.css" />
            
-            
+            <script>
+                var location_chosen = false;
+                var time_chosen = false;
+                var budget_chosen = false;
+                var transportation_chosen = false;
+                var surprise_chosen = false;
+
+                function disable_button(object_to_disable) {
+                    object_to_disable.style.opacity="0.5";
+                }
+
+                var choosing_criteria = true;
+            </script>
 
         </head>
 
         <body>
+
+            <script>
+
+                // while (choosing_criteria == true) {
+
+                //     if (location_chosen == true) {
+
+                //         disable_button.call(Palo_Alto_Btn);
+
+                //         // <a class="btn bar_btn_custom btn_align_left disabled">San Francisco</a>
+                //         // Palo_Alto_Btn.disabled = true;
+                //         // return true;
+
+                        
+                //     }
+                // }
+                 
+
+            </script>
 
             <div>
                 <h1 style="font-family: quicksand;">Find An Adventure!</h1>
@@ -53,9 +84,9 @@
                 <i class="fa fa-tree test-icon"></i>   
                 <i class="fa fa-shopping-cart shopping-icon"></i>     
                 <i class="fa fa-film film-icon"></i>
-                <i class="fa fa-building landmark-icon"></i>
+                <i class="fa fa-landmark landmark-icon"></i>
                 <i class="fa fa-coffee cafe-icon"></i>
-                <i class="fa fa-git food-icon"></i>
+                <i class="fa fa-utensils food-icon"></i>
 
 
 
@@ -83,16 +114,23 @@
                             function San_Francisco() {
                             document.getElementById("San Francisco Btn").style.backgroundColor = "#99cfff";
                             }
+
+                            var location_chosen = true;
+
+                            return location_chosen;
+
                         </script>
                     </a>
 
-                    <a id="Palo Alto Btn" class="btn bar_btn_custom btn_align_left">Palo Alto</a>
+                    <a id="Palo_Alto_Btn" class="btn bar_btn_custom btn_align_left">Palo Alto</a>
 
                         <script>
-                            document.getElementById("Palo Alto Btn").onclick = function() {Palo_Alto()};
+                            document.getElementById("Palo_Alto_Btn").onclick = function() {Palo_Alto()};
 
                             function Palo_Alto() {
-                            document.getElementById("Palo Alto Btn").style.backgroundColor = "#99cfff";
+                            document.getElementById("Palo_Alto_Btn").style.backgroundColor = "#99cfff";
+
+
                             }
                         </script>
                     
@@ -315,4 +353,5 @@
     {% endblock content %}
 
 </html>
+
 
