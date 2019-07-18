@@ -26,17 +26,21 @@
     
 }
 
-/* .btn_align_right {
+.btn_align_right {
 
-    display: flex;
+    display: block;
     margin-left: auto;
-    vertical-align: auto;
-    flex-direction: column;
-    position: relative;
-    top: -15.15em;
     margin-right: 3em;
     
-} */
+}
+
+.btn_align_left {
+
+    display: block;
+    margin-left: 3em;
+    margin-right: auto;
+    
+}
 
 /* .align_right {
     position: absolute;
