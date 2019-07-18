@@ -20,16 +20,15 @@
             var user_latitude 
             var user_longitude 
             var pos_end_dest
+           
             var request_object = {
-                address: 'Los Angeles ',
+                address: 'Los Angeles',
             }
+            
 
             function load() {
+                console.log("loaded")
                 getLocation()
-            }
-
-            function g_code() {                                                  //gets coords of destination//
-                // pos_end_dest = google.maps.Geocoder.geocode(request_object)
             }
 
             function getLocation() {                                        //if: successful, calls getPosition, else: gives alert//
@@ -49,14 +48,26 @@
                     lng: user_longitude,
                 }
 
-                console.log(pos)
-
                 map.setCenter(pos);
+                console.log("got pos" + pos)
+
+                marker();
+            }
+
+
+            function marker() {
+                var marker = new google.maps.Marker({                                       //makes marker//
+                    position: pos_end_dest,
+                    title: request_object["address"],
+                });
+                console.log("made marker")
+
+                marker.setMap(map);                                                         //puts marker on map//
+                console.log("set marker")
+
             }
 
             function myMap() {
-                var directionsService = new google.maps.DirectionsService();
-                var directionsDisplay = new google.maps.DirectionsRenderer();
                 
                 var mapProp = {                                                             //sets properties of map//
                     center: new google.maps.LatLng(user_latitude, user_longitude),
@@ -65,39 +76,44 @@
 
                 const geocoder = new google.maps.Geocoder()
 
-                pos_end_dest = geocoder.geocode(request_object)
+                pos_end_dest = geocoder.geocode(request_object)                          //gets coords of destination//
 
-                var marker = new google.maps.Marker({                                       //makes marker//
-                    position: pos_end_dest,
-                    title: request_object["address"],
-                });
+                // var marker = new google.maps.Marker({                                       //makes marker//
+                //     position: pos_end_dest,
+                //     title: request_object["address"],
+                // });
             
                 console.log("myMap")
                 map = new google.maps.Map(document.getElementById("googleMap"), mapProp);   //makes map//
-                marker.setMap(map);                                                         //puts marker on map//
+
+                
             }
 
-            function calcRoute() {                                                          //calculates route//
-                var start = google.maps.LatLng(user_latitude, user_longitude);
+            function calcRoute() {         
+                var directionsService = new google.maps.DirectionsService();
+                var directionsDisplay = new google.maps.DirectionsRenderer();            //calculates route??//
+                                                              
+                var start = {
+                    lat: user_latitude,
+                    lng: user_longitude,
+                }
                 var end = pos_end_dest;
                 var request = {                                                         // route calculating options//
                     origin: start,
                     destination: end,
                     travelMode: 'TRANSIT',  //can replace transit with var//
-                    avoidferries: false, 
-                    avoidhighways: false,
-                    avoidtolls: false,
                     unitSystem: google.maps.UnitSystem.IMPERIAL,
 
                 };
 
-                g_code(pos_end_dest)
-
                 directionsService.route(request, function(result, status) {
                     if (status == 'OK') {
+                    console.log("directions");
                     directionsDisplay.setDirections(result);                            //displays directions?? //
                     }
-                    
+                    else {
+                        console.log("failed");
+                    }
                 });
             }
 
