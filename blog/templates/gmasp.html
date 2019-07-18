@@ -27,7 +27,6 @@
             
 
             function load() {
-                console.log("loaded")
                 getLocation()
             }
 
@@ -63,7 +62,6 @@
                 },
                     title: request_object["address"],
                 });
-                console.log("made marker")
 
                 marker.setMap(map);                                                         //puts marker on map//
                 console.log("set marker")
@@ -77,30 +75,29 @@
                     zoom: 14,
                 };
 
+                map = new google.maps.Map(document.getElementById("googleMap"), mapProp);   //makes map//
+                
+            }
+
+            function geocide() {
                 const geocoder = new google.maps.Geocoder()
 
                 pos_end_dest = geocoder.geocode(request_object)                          //gets coords of destination//
-
-                // var marker = new google.maps.Marker({                                       //makes marker//
-                //     position: pos_end_dest,
-                //     title: request_object["address"],
-                // });
             
-                console.log("myMap")
-                map = new google.maps.Map(document.getElementById("googleMap"), mapProp);   //makes map//
+                console.log(pos_end_dest)
 
-                
             }
 
             function calcRoute() {         
                 var directionsService = new google.maps.DirectionsService();
                 var directionsDisplay = new google.maps.DirectionsRenderer();            //calculates route??//
-                                                              
+
                 var start = {
                     lat: user_latitude,
                     lng: user_longitude,
                 }
                 var end = pos_end_dest;
+
                 var request = {                                                         // route calculating options//
                     origin: start,
                     destination: end,
@@ -108,6 +105,10 @@
                     unitSystem: google.maps.UnitSystem.IMPERIAL,
 
                 };
+
+                geocide();
+                
+                console.log("calcroute called")
 
                 directionsService.route(request, function(result, status) {
                     if (status == 'OK') {
