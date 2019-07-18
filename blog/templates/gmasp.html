@@ -49,7 +49,7 @@
                 }
 
                 map.setCenter(pos);
-                console.log("got pos" + pos)
+                console.log(pos)
 
                 marker();
             }
@@ -57,7 +57,10 @@
 
             function marker() {
                 var marker = new google.maps.Marker({                                       //makes marker//
-                    position: pos_end_dest,
+                    position: {
+                    lat: user_latitude,
+                    lng: user_longitude,
+                },
                     title: request_object["address"],
                 });
                 console.log("made marker")
