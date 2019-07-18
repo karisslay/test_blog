@@ -1,24 +1,50 @@
-img.align_left {
-    display: flex;
+.align_left {
+    /* creates a flex display */
+    display: flex; 
+
     vertical-align: auto;
+
+    /* creates columns */
     flex-direction: column;
-    margin-left: 1em;
+
+    /* creates a margin */
+    margin-left: 3em;
     
     
 
 }
 
-img.align_right {
+.align_right {
 
     display: flex;
     margin-left: auto;
     vertical-align: auto;
     flex-direction: column;
     position: relative;
-    top: -50px;
-    margin-right: 1em;
+    top: -5em;
+    margin-right: 3em;
     
 }
+
+/* .btn_align_right {
+
+    display: flex;
+    margin-left: auto;
+    vertical-align: auto;
+    flex-direction: column;
+    position: relative;
+    top: -15.15em;
+    margin-right: 3em;
+    
+} */
+
+/* .align_right {
+    position: absolute;
+    right: 0px;
+    width: 300px;
+    border: 3px solid #73AD21;
+    padding: 10px;
+  } */
 
 
 img.center {

@@ -1,9 +1,11 @@
 .bar_btn_custom {
+    display: block;
     font-family: "Quicksand";
 	background-color: #b3dbff;
     border-color: #b3dbff;
     color: #003366;
-    padding: 1em 3em; 
+    width: 19em;
+    /* padding: 1em 3em;  */
 }
 
 
