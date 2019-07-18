@@ -10,6 +10,8 @@
     /* creates a margin */
     margin-left: 3em;
     
+    margin-top:130px;
+    
     
 
 }
@@ -21,8 +23,9 @@
     vertical-align: auto;
     flex-direction: column;
     position: relative;
-    top: -5em;
+    top: -24em;
     margin-right: 3em;
+    margin-top:130px;
     
 }
 
