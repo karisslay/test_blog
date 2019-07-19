@@ -20,10 +20,10 @@
             var user_latitude 
             var user_longitude 
             var pos_end_dest
-           
-            var request_object = {
-                address: 'Los Angeles',
-            }
+            var end_location
+            var end_coords
+
+            var destination = "San Francisco Twin Peaks"
             
 
             function load() {
@@ -50,21 +50,35 @@
                 map.setCenter(pos);
                 console.log(pos)
 
-                marker();
+                user_pos_marker();
+                geocide();
+                // end_pos_marker();
+
             }
 
 
-            function marker() {
-                var marker = new google.maps.Marker({                                       //makes marker//
+            function user_pos_marker() {
+                var marker1 = new google.maps.Marker({                                       //makes marker//
                     position: {
                     lat: user_latitude,
                     lng: user_longitude,
                 },
-                    title: request_object["address"],
                 });
 
-                marker.setMap(map);                                                         //puts marker on map//
-                console.log("set marker")
+                marker1.setMap(map);                                                         //puts marker on map//
+                console.log("set user marker")
+
+            }
+
+            function end_pos_marker() {
+
+                var marker2 = new google.maps.Marker({                                       //makes marker//
+                    position: end_coords,
+                    
+                });
+
+                marker2.setMap(map);                                                         //puts marker on map//
+                console.log("set destination marker")
 
             }
 
@@ -72,7 +86,7 @@
                 
                 var mapProp = {                                                             //sets properties of map//
                     center: new google.maps.LatLng(user_latitude, user_longitude),
-                    zoom: 14,
+                    zoom: 13,
                 };
 
                 map = new google.maps.Map(document.getElementById("googleMap"), mapProp);   //makes map//
@@ -80,15 +94,32 @@
             }
 
             function geocide() {
-                const geocoder = new google.maps.Geocoder()
-                
+                var geocoder = new google.maps.Geocoder()
 
-                pos_end_dest = geocoder.geocode(request_object)                          //gets coords of destination//
-               
-                // geo_result = geocoder.result(request_object)
-                console.log(pos_end_dest)
-                console.log("b")
+                geocoder.geocode(
+                    {
+                        address: destination,
+                    },
+                    function(results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            end_location = results[0].geometry.location
 
+                            lat = end_location.lat()
+                            lng = end_location.lng()
+                            
+                            end_coords = {
+                                lat,
+                                lng,
+                            };
+                        }
+                        else {
+                            console.log("geocode failed")
+                        }
+                    },
+                );      
+
+                console.log(end_coords)
+                console.log("geocide achieved")
             }
 
 
@@ -96,11 +127,13 @@
                 var directionsService = new google.maps.DirectionsService();
                 var directionsDisplay = new google.maps.DirectionsRenderer();            //calculates route??//
 
+                geocide();
+
                 var start = {
                     lat: user_latitude,
                     lng: user_longitude,
                 }
-                var end = pos_end_dest;
+                var end = end_coords;
 
                 var request = {                                                         // route calculating options//
                     origin: start,
@@ -110,7 +143,6 @@
 
                 };
 
-                geocide();
                 
                 console.log("calcroute called")
 
@@ -119,10 +151,9 @@
                     console.log("directions");
                     directionsDisplay.setMap(map);
                     directionsDisplay.setDirections(result);                            //displays directions?? //
-
                     }
                     else {
-                        console.log("failed");
+                        console.log("directions failed");
                     }
                 });
                 
