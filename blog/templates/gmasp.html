@@ -22,9 +22,10 @@
             var pos_end_dest
             var end_location
             var end_coords
-
+           
             var destination = "San Francisco Twin Peaks"
-            
+
+            var travel_mode = "DRIVING" //"TRANSIT" "BICYCLING" "WALKING"                                              // do this//
 
             function load() {
                 getLocation()
@@ -138,7 +139,7 @@
                 var request = {                                                         // route calculating options//
                     origin: start,
                     destination: end,
-                    travelMode: 'TRANSIT',  //can replace transit with var//
+                    travelMode: travel_mode, 
                     unitSystem: google.maps.UnitSystem.IMPERIAL,
 
                 };
@@ -169,13 +170,6 @@
         type="text/javascript"
         >
         </script>
-
-        <!-- <script 
-        src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBatSFsLO7FcTGtpxjP7FcAwKaevJb1N_k&callback=calcRoute" 
-        type="text/javascript"
-        >
-        </script> -->
-
 
         <!-- calculates route when button is pressed -->  
         <div class="btn find_r_container"> 
