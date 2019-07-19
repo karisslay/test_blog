@@ -1,4 +1,4 @@
-.btn_primary_custom {
+.btn_red_custom {
     font-family: "Quicksand";
 	background-color: #992600;
     border-color: #992600;
@@ -7,13 +7,13 @@
 }
 
 
-.btn_primary_custom:active{
+.btn_red_custom:active{
     font-family: "Quicksand";
     background-color: #cc3300;
     color: #cccccc;
 }
 
-.btn_primary_custom:hover{
+.btn_red_custom:hover{
     font-family: "Quicksand";
     background-color: #cc3300;
     color: #cccccc;
@@ -24,5 +24,10 @@
     display: flex;
     justify-content: center;
   }
+
+.find_my_adv {
+    width: 16em;
+    height: 4em;
+}
 
   

@@ -22,17 +22,6 @@
 }
 
 
-label {
-    display: block;
-    background: lightgrey;
-    width: 100px;
-    height: 100px;
-}
-
-#demo:checked + label {
-    background: blue;
-    color: white;
-}
 
 
   
