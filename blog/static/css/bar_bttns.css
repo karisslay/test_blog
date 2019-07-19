@@ -21,7 +21,11 @@
     color: #003366;
 }
 
-
+.disable_bttn {
+    background-color: red;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
 
 
   
