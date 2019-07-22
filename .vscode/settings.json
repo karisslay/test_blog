@@ -1,3 +1,5 @@
 {
-    "python.pythonPath": "/Users/gwc/Documents/GitHub/test_blog/myvenv/bin/python3"
+    "python.pythonPath": "/Users/gwc/Documents/GitHub/test_blog/myvenv/bin/python3",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
 }

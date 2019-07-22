@@ -36,6 +36,9 @@
             <!-- loads javascript -->
             <link rel="stylesheet" type="text/javascript" href="/static/js/bar_bttns.js" />
 
+            <!-- loads python file for bar button clicking -->
+            <link rel="stylesheet" type="text/javascript" href="/static/python/bar_bttns.py" />
+
            
             <script>
 
@@ -75,9 +78,9 @@
         <body>
 
             <script>
-
-                check_if_finished();
-                    
+                console.log(location_chosen);
+                check_if_finished(); //loops contiunously while user is still choosing criteria
+                    // if the user has already chosen one in a category, other buttons are disabled
 
             </script>
 
@@ -126,18 +129,15 @@
                     <a id="San Francisco Btn" class="btn bar_btn_custom btn_align_left">San Francisco
 
                         <script>
+                            
                             document.getElementById("San Francisco Btn").onclick = function() {San_Francisco()};
 
                             function San_Francisco() {
-                            document.getElementById("San Francisco Btn").style.backgroundColor = "#99cfff";
-                            
-                            location_chosen = true;
-
-                            return location_chosen;
+                                document.getElementById("San Francisco Btn").style.backgroundColor = "#99cfff";
+                                
+                                location_chosen = true
+                                return location_chosen;
                             }
-
-                            
-
                         </script>
                     </a>
 
@@ -147,7 +147,7 @@
                             document.getElementById("Palo_Alto_Btn").onclick = function() {palo_alto()};
 
                             function palo_alto() {
-                                // document.getElementById("Palo_Alto_Btn").style.backgroundColor = "#99cfff";
+                                
                                 
                                 string = "Palo_Alto_Btn";
                                 if (location_chosen == true) {

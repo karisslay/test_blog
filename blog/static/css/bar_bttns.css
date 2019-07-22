@@ -22,7 +22,14 @@
 }
 
 .disable_bttn {
-    background-color: red;
+    /* background-color: red; */
+    display: block;
+    font-family: "Quicksand";
+    background-color: #b3dbff;
+    border-color: #b3dbff;
+    color: #003366;
+    width: 18.75em;
+    height: 2.5em;
     opacity: 0.6;
     cursor: not-allowed;
 }
