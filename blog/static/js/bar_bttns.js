@@ -1,3 +1,5 @@
+
+
 $.get("/Users/gwc/Work_Space/django/test_blog/blog/static/css/bar_bttns.css", function (resp) {
     // resp now should contain your CSS file content.
 
@@ -17,7 +19,28 @@ var reset_buttons = false;
 
 var dict = null;
 
-function set_button_status (dictionary, button_name, button_id) {
+
+
+
+
+
+
+function set_button_status (button_id, dictionary) {
+    
+    var button_dict_keys = dictionary.keys();
+    
+    for (key of button_dict_keys) {
+        if (key != button_id && dictionary[button] == "enabled") {
+            dictionary[button] = "disabled";
+
+        }
+    } 
+
+    reset_buttons = true;
+}
+
+
+function change_button_status (dictionary, button_name, button_id) {
             
     // var button_dict_keys = dictionary.keys();
     
@@ -92,36 +115,9 @@ transportation_button_dict.push = {
 
 
 
-// document.getElementById().onclick = button_settings();
-
-// function button_settings (button_id, dictionary) {
-    
-//     var button_dict_keys = dictionary.keys();
-    
-//     for (key of button_dict_keys) {
-//         if (key != button_id && dictionary[button] == "enabled") {
-//             dictionary[button] = "disabled";
-
-//         }
-//     } 
-
-//     reset_buttons = true;
-// }
 
 
-// function set_button_status (dictionary) {
-    
-//     var button_dict_keys = dictionary.keys();
-    
-//     for (key of button_dict_keys) {
-        
-//         if (dictionary[key] == "disabled") {
-//             .disable_bttn
-//         }
 
-//         else if (dictionary[key] == "enabled") {
 
-//         }
-//     }
-// }
+
 

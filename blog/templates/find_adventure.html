@@ -46,9 +46,30 @@
         <body>
 
             <script>
-                console.log(location_chosen);
-                check_if_finished(); //loops contiunously while user is still choosing criteria
+                 // console.log(location_chosen);
+                // check_if_finished(); //loops contiunously while user is still choosing criteria
                     // if the user has already chosen one in a category, other buttons are disabled
+
+
+                    
+
+                    dict = location_button_dict;
+
+                    var button_dict_keys = dict.keys();
+
+                    function set_button_status (button_id, dictionary) {
+
+                        var button_dict_keys = dictionary.keys();
+                        
+                        for (key of button_dict_keys) {
+                            if (key != button_id && dictionary[button] == "enabled") {
+                                dictionary[button] = "disabled";
+
+                            }
+                        } 
+
+                    reset_buttons = true;
+                    }
 
             </script>
 <div>
@@ -249,15 +270,17 @@
                     
                         
                     <script>
+                        console.log ("hi2");
+                        document.getElementById("oakland_button").onclick = set_button_status("oakland_button", location_button_dict);
+                        console.log ("hi1");
+                        change_button_status (location_button_dict, oakland_id, Oakland);
 
-                        set_button_status (location_button_dict, oakland_id, Oakland);
-                        
-                        document.getElementById("Oakland Btn").onclick = function() {Oakland()};
+                        // document.getElementById("Oakland Btn").onclick = function() {Oakland()};
 
-                        function Oakland() {
-                        document.getElementById("Oakland Btn").style.backgroundColor = "#99cfff";
+                        // function Oakland() {
+                        //     document.getElementById("Oakland Btn").style.backgroundColor = "#99cfff";
                         
-                        }
+                        // }
                     </script>
 
 
@@ -267,14 +290,16 @@
                     <a id="fremont_button" class="btn bar_btn_custom btn_align_left">Fremont</a>
                     <script>
 
-                        set_button_status (location_button_dict, Fremont, fremont_button);
+                        document.getElementById("fremont_button").onclick = set_button_status("fremont_button", location_button_dict);
+                        change_button_status (location_button_dict, Fremont, fremont_button);
                     
-                        document.getElementById("Fremont Btn").onclick = function() {Fremont()};
+                        // document.getElementById("Fremont Btn").onclick = function() {Fremont()};
 
-                        function Fremont() {
-                        document.getElementById("Fremont Btn").style.backgroundColor = "#99cfff";
-                        }
+                        // function Fremont() {
+                        //     document.getElementById("Fremont Btn").style.backgroundColor = "#99cfff";
+                        // }
                     </script>
+
 
 
 
