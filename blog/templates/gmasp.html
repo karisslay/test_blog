@@ -13,6 +13,7 @@
             <link rel="stylesheet" type="text/css" href="/static/css/get_started_bttn.css" />   
             <link rel="stylesheet" type="text/css" href="/static/css/find_route_bttn.css" />   
             <script type="text/javascript" src="/static/js/cookies.js"></script>
+            <script type="text/javascript" src="/static/js/place_types_arrays.js"></script>
         </head>
         
 
@@ -28,7 +29,7 @@
             var transit = getCookie("transit");
             var bicycling = getCookie("bicycling");
 
-            var type = [];
+            var type 
 
             var outdoor_activity = getCookie("outdoor_activity");
             var indoor_activity = getCookie("indoor_activity");
@@ -188,9 +189,26 @@
             }   
 
             function set_type() {
-                if (outdoor_activity=true) {
-                    type.append
+                if (outdoor_activity==true) {
+                    //psuedorandom pick a type from a list 
+                    type = pass
                 }
+                else if (indoor_activity==true) {
+                    type = pass
+                }
+                else if (restaurant==true) {
+                    type = pass
+                }
+                else if (cafe==true) {
+                    type = pass
+                }
+                else if (shopping==true) {
+                    type = pass
+                }
+                else if (museum==true) {
+                    type = 'museum'
+                }
+                
             }
 
 
