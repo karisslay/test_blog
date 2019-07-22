@@ -1,3 +1,12 @@
-//TRAVEL_MODE COOKIES
-document.cookie = "driving=true"; "transit=false"; "bicycling=false"; "walking=false";
+document.cookie = "driving=true"
+document.cookie = "transit=false"
+document.cookie = "bicycling=false"
+document.cookie = "walking=false"
+
+document.cookie = "outdoor_activity=false"
+document.cookie = "indoor_activity=false"
+document.cookie = "restaurant=false"
+document.cookie = "cafe=false"
+document.cookie = "shopping=false"
+document.cookie = "museum=false"
 
