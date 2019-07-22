@@ -12,23 +12,32 @@
         <head>
             <link rel="stylesheet" type="text/css" href="/static/css/get_started_bttn.css" />   
             <link rel="stylesheet" type="text/css" href="/static/css/find_route_bttn.css" />   
-            <script type="text/javascript" src="cookies.js"></script>
-
+            <script type="text/javascript" src="/static/js/cookies.js"></script>
         </head>
         
 
         <script>
             document.addEventListener("DOMContentLoaded", load);
 
+            var search_query = "hike"                   //do this
+
+            var travel_mode
             
-            var destination = "San Francisco Twin Peaks"
+            var driving = getCookie("driving");
+            var walking = getCookie("walking");
+            var transit = getCookie("transit");
+            var bicycling = getCookie("bicycling");
 
-            var travel_mode                        
+            var type = [];
 
-            var driving = getCookie(driving);
-            var walking = getCookie(walking);
-            var transit = getCookie(transit);
-            var bicycling = getCookie(bicycling);
+            var outdoor_activity = getCookie("outdoor_activity");
+            var indoor_activity = getCookie("indoor_activity");
+            var restaurant = getCookie("restaurant");
+            var cafe = getCookie("cafe");
+            var shopping = getCookie("shopping");
+            var museum = getCookie("museum");
+
+            var destination 
 
             var map
             var user_latitude 
@@ -42,7 +51,7 @@
                 getLocation()
             }
 
-            function getLocation() {                                        //if: successful, calls getPosition, else: gives alert//
+            function getLocation() {                                       
                 if (navigator.geolocation) { // Supported
                     navigator.geolocation.getCurrentPosition(getPosition) 
                 } else { // Not supported
@@ -64,7 +73,6 @@
 
                 user_pos_marker();
                 geocide();
-                // end_pos_marker();
 
             }
 
@@ -137,32 +145,68 @@
             function getCookie(cname) {
                 var name = cname + "=";
                 var decodedCookie = decodeURIComponent(document.cookie);
+
                 var ca = decodedCookie.split(';');
+
                 for(var i = 0; i <ca.length; i++) {
                     var c = ca[i];
+
                     while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
+                        c = c.substring(1);
                     }
+
                     if (c.indexOf(name) == 0) {
-                    return c.substring(name.length, c.length);
+                        return c.substring(name.length, c.length);
                     }
                 }
+
                 return "";
             }
+
+            function findplace() {
+                var place = new google.maps.places.PlacesService(map);
+
+                set_type();
+
+                var request = {
+                    query: search_query,
+                    fields: ['name', 'formatted_address',type,],
+                    locationBias: {radius: 10000, center: {user_latitude, user_longitude}}
+                
+                };
+
+                place.findPlaceFromQuery(request, function(results, status) {
+                    if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    for (var i = 0; i < results.length; i++) {
+                        createMarker(results[i]);
+                    }
+                    console.log(results[0])
+                    destination = (results[0]);
+                    }
+
+                });
+            }   
+
+            function set_type() {
+                if (outdoor_activity=true) {
+                    type.append
+                }
+            }
+
 
             function settravelmode() {
                 if (driving==true) {
                     travel_mode="DRIVING";
-                }
-                if (transit==true) {
+                } 
+                else if (transit==true) {
                     travel_mode="TRANSIT";
-                }
-                if (walking==true) {
+                } 
+                else if (walking==true) {
                     travel_mode="WALKING";
-                }
-                if (bicycling==true) {
+                } 
+                else if (bicycling==true) {
                     travel_mode="BICYCLING";
-                }
+                } 
                 else {
                     travel_mode="DRIVING";
                 }
@@ -192,7 +236,6 @@
                     unitSystem: google.maps.UnitSystem.IMPERIAL,
 
                 };
-
                 
                 end_pos_marker();
 
@@ -201,7 +244,7 @@
                         console.log("directions");
                         directionsDisplay.setMap(map);
                         directionsDisplay.setDirections(result);                           
-                        }
+                    }
                     else {
                         window.alert("Failed to grab directions, please try again in a a few seconds. ");
                         console.log("directions failed");
@@ -209,6 +252,7 @@
                 });
                 
             }
+
 
         </script>
 
