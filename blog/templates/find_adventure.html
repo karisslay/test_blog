@@ -40,39 +40,7 @@
             <link rel="stylesheet" type="text/javascript" href="/static/python/bar_bttns.py" />
 
            
-            <script>
-
-                // var location_chosen = false;
-                // var time_chosen = false;
-                // var budget_chosen = false;
-                // var transportation_chosen = false;
-                // var surprise_chosen = false;
-
-                // var interval = setInterval(check_if_finished, 1000);
-
-                // // function disable_button(object_to_disable) {
-                // //     object_to_disable.style.opacity="0.5";
-                // // }
-
-                // // var choosing_criteria = true;
-
-                // function check_if_finished() {
-
-                //     while (choosing_criteria == true) {
-                //         if (location_chosen == true) {
-
-                //             document.getElementById("Palo_Alto_Btn").className = "disable_bttn";
-                //     }
-
-                //         else if (choosing_criteria == false) {
-                //         // return false;
-                //     }
-
-                //         clearInterval(interval);
-                }
-
-            </script>
-
+    
         </head>
 
         <body>
@@ -159,27 +127,66 @@
                                 }
                             }
                         </script>
-                        
-                    <a id="Oakland Btn" class="btn bar_btn_custom btn_align_left">Oakland</a>
 
-                        <script>
-                            document.getElementById("Oakland Btn").onclick = function() {Oakland()};
+                    <script> 
 
-                            function Oakland() {
-                            document.getElementById("Oakland Btn").style.backgroundColor = "#99cfff";
-                            }
-                        </script>
+                        dict = location_button_dict;
 
-                    <a id="Fremont Btn" class="btn bar_btn_custom btn_align_left">Fremont</a>
-
-                        <script>
-                            document.getElementById("Fremont Btn").onclick = function() {Fremont()};
-
-                            function Fremont() {
-                            document.getElementById("Fremont Btn").style.backgroundColor = "#99cfff";
-                            }
-                        </script>
+                        var button_dict_keys = dict.keys();
+                
                     
+                    </script>
+                   
+
+                    <!-- Oakland code: -->
+                    <!-- {% if reset_buttons == true %}
+
+                        {% for key in button_dict_keys %}
+
+                            {% ifequal value 'disabled' %}
+                            <a id="Oakland Btn" class="btn bar_btn_custom btn_align_left disable_bttn">Oakland</a>
+
+                            {% else ifequal value 'enabled' %}
+                            <a id="Oakland Btn" class="btn bar_btn_custom btn_align_left">Oakland</a>
+
+                        {% endfor %}
+
+                    {% endif %} -->
+
+                    <a id="oakland_button" class="btn bar_btn_custom btn_align_left">Oakland</a>
+                    
+                        
+                    <script>
+
+                        set_button_status (location_button_dict, oakland_id, Oakland);
+                        
+                        document.getElementById("Oakland Btn").onclick = function() {Oakland()};
+
+                        function Oakland() {
+                        document.getElementById("Oakland Btn").style.backgroundColor = "#99cfff";
+                        
+                        }
+                    </script>
+
+
+                    
+                    <!-- Fremont code: -->
+
+                    <a id="fremont_button" class="btn bar_btn_custom btn_align_left">Fremont</a>
+                    <script>
+
+                        set_button_status (location_button_dict, Fremont, fremont_button);
+                    
+                        document.getElementById("Fremont Btn").onclick = function() {Fremont()};
+
+                        function Fremont() {
+                        document.getElementById("Fremont Btn").style.backgroundColor = "#99cfff";
+                        }
+                    </script>
+
+
+
+                    <!-- Walnut Creek code: -->
                     <a id="Walnut Creek Btn" class="btn bar_btn_custom btn_align_left">Walnut Creek</a>
                         
                         <script>
@@ -192,7 +199,10 @@
                     
                 </div>
 
+
+
                 
+                <!-- Time buttons group: -->
                 <img
                     src="/static/time/Time.png"
                     alt="Type" 

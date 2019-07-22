@@ -13,25 +13,32 @@ var surprise_chosen = false;
 
 var interval = setInterval(check_if_finished, 1000);
 
+var reset_buttons = false;
 
+var dict = null;
 
-// function check_if_finished() {
+function set_button_status (dictionary, button_name, button_id) {
+            
+    // var button_dict_keys = dictionary.keys();
+    
+    for (key of button_dict_keys) {
 
-//     console.log("hi")
+        if (reset_buttons == true) {
+            if (dictionary[key] == "disabled") {
+                <a id= {{button_id}} class="btn bar_btn_custom btn_align_left disable_bttn">{{button_name}}</a>
+                
+            }
 
-//     while (choosing_criteria == true) {
-//         if (location_chosen == true) {
+            else if (dictionary[key] == "enabled") {
+                <a id= {{button_id}} class="btn bar_btn_custom btn_align_left disable_bttn">{{button_name}}</a>
 
-//             document.getElementById("Palo_Alto_Btn").className += "disable_bttn";
-//     }
+            }
+    }
+            
+    }
 
-//         // else if (location_chosen == false) {
-//         // return false;
-//     }
-
-//         clearInterval(interval);
-// }
-
+    reset_buttons = false;
+}
 
 
 
@@ -47,44 +54,74 @@ location_button_dict.push = {
 
 }
 
-// "budget": {
-//     "free": "enabled",
-//     "five_twenty": "enabled",
-//     "twenty_fifty": "enabled",
-//     "fifty_plus": "enabled",
-// },
 
-// "time": {
-//     "2_hours": "enabled",
-//     "4_hours": "enabled",
-//     "6_hours": "enabled",
-//     "6_plus_hours": "enabled",
-// },
+var budget_button_dict = [];
 
-// "transportation": {
-//     "walking": "enabled",
-//     "car": "enabled",
-//     "ferry": "enabled",
-//     "public_transportation": "enabled",
-// },
+budget_button_dict.push = {
 
-// document.getElementById().onclick = function() {
-//     array.forEach(iterate_small_lists);
-// }
+    "free": "enabled",
+    "five_twenty": "enabled",
+    "twenty_fifty": "enabled",
+    "fifty_plus": "enabled",
 
-// function iterate_small_lists () {
-//     array.forEach(button_settings);
-// }
-
-function button_settings (button_id, dictionary) {
-    
-    var button_dict_keys = dictionary.keys();
-    
-    for (button of button_dict_keys) {
-        if (button != button_id && dictionary[button] == "enabled") {
-            
-
-        }
-    }
-   
 }
+
+
+var time_button_dict = [];
+
+time_button_dict.push = {
+
+    "2_hours": "enabled",
+    "4_hours": "enabled",
+    "6_hours": "enabled",
+    "6_plus_hours": "enabled",
+
+}
+
+
+var transportation_button_dict = [];
+
+transportation_button_dict.push = {
+
+    "walking": "enabled",
+    "car": "enabled",
+    "ferry": "enabled",
+    "public_transportation": "enabled",
+}
+
+
+
+
+// document.getElementById().onclick = button_settings();
+
+// function button_settings (button_id, dictionary) {
+    
+//     var button_dict_keys = dictionary.keys();
+    
+//     for (key of button_dict_keys) {
+//         if (key != button_id && dictionary[button] == "enabled") {
+//             dictionary[button] = "disabled";
+
+//         }
+//     } 
+
+//     reset_buttons = true;
+// }
+
+
+// function set_button_status (dictionary) {
+    
+//     var button_dict_keys = dictionary.keys();
+    
+//     for (key of button_dict_keys) {
+        
+//         if (dictionary[key] == "disabled") {
+//             .disable_bttn
+//         }
+
+//         else if (dictionary[key] == "enabled") {
+
+//         }
+//     }
+// }
+
