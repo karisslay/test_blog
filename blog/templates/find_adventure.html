@@ -46,50 +46,37 @@
         <body>
 
             <script>
-                 // console.log(location_chosen);
-                // check_if_finished(); //loops contiunously while user is still choosing criteria
+                console.log(location_chosen);
+                check_if_finished(); //loops contiunously while user is still choosing criteria
                     // if the user has already chosen one in a category, other buttons are disabled
-
-
-                    
-
-                    dict = location_button_dict;
-
-                    var button_dict_keys = dict.keys();
-
-                    function set_button_status (button_id, dictionary) {
-
-                        var button_dict_keys = dictionary.keys();
-                        
-                        for (key of button_dict_keys) {
-                            if (key != button_id && dictionary[button] == "enabled") {
-                                dictionary[button] = "disabled";
-
-                            }
-                        } 
-
-                    reset_buttons = true;
-                    }
 
             </script>
 <div>
         <h1 style="font-family: quicksand;">Find An Adventure!</h1>
+   
+   
+    </div>
+</div>
+
     </div>
 
-    <div class="space">
+</div class="space">
 
     </div>
 
-    <div id="thingy">
-       
-        <img
+    <img
             src="/static/Type.png"
             alt="Type" 
             height="50" 
             width="300"
             class= "center"
-            
-        />
+
+            />
+                
+
+    <div id="thingy" class="horizontal" >
+       
+        
         <button id="tree-button">
             <i class="fa fa-tree big test-icon"></i>
         </button>
@@ -105,16 +92,16 @@
 
         
         <button id="shopping-button">
-                <i class="fa fa-shopping-cart big shopping-icon"></i>
-            </button>
+            <i class="fa fa-shopping-cart big shopping-icon"></i>
+        </button>
 
-            <p id="demo"></p>
+        <p id="demo"></p>
 
-            <script>
-                $("#shopping-button").on("click", function() {
-                    console.log("HERE")
-                    $(this).addClass("icon-selected")
-                })
+        <script>
+            $("#shopping-button").on("click", function() {
+                console.log("HERE")
+                $(this).addClass("icon-selected")
+            })
         </script>
 
 
@@ -178,16 +165,7 @@
 
     
 
-       
-        <div class="btn-group">
-                <button>tree-button</button>
-                <button>shopping-button</button>
-                <button>film-button</button>
-                <button>landmark-button</button>
-                <button>coffee-button</button>
-                <button>utensils-button</button>
-        </div>
-              
+                
 
 
     </div>
@@ -270,17 +248,15 @@
                     
                         
                     <script>
-                        console.log ("hi2");
-                        document.getElementById("oakland_button").onclick = set_button_status("oakland_button", location_button_dict);
-                        console.log ("hi1");
-                        change_button_status (location_button_dict, oakland_id, Oakland);
 
-                        // document.getElementById("Oakland Btn").onclick = function() {Oakland()};
-
-                        // function Oakland() {
-                        //     document.getElementById("Oakland Btn").style.backgroundColor = "#99cfff";
+                        set_button_status (location_button_dict, oakland_id, Oakland);
                         
-                        // }
+                        document.getElementById("Oakland Btn").onclick = function() {Oakland()};
+
+                        function Oakland() {
+                        document.getElementById("Oakland Btn").style.backgroundColor = "#99cfff";
+                        
+                        }
                     </script>
 
 
@@ -290,16 +266,14 @@
                     <a id="fremont_button" class="btn bar_btn_custom btn_align_left">Fremont</a>
                     <script>
 
-                        document.getElementById("fremont_button").onclick = set_button_status("fremont_button", location_button_dict);
-                        change_button_status (location_button_dict, Fremont, fremont_button);
+                        set_button_status (location_button_dict, Fremont, fremont_button);
                     
-                        // document.getElementById("Fremont Btn").onclick = function() {Fremont()};
+                        document.getElementById("Fremont Btn").onclick = function() {Fremont()};
 
-                        // function Fremont() {
-                        //     document.getElementById("Fremont Btn").style.backgroundColor = "#99cfff";
-                        // }
+                        function Fremont() {
+                        document.getElementById("Fremont Btn").style.backgroundColor = "#99cfff";
+                        }
                     </script>
-
 
 
 
@@ -516,5 +490,4 @@
     {% endblock content %}
 
 </html>
-
 

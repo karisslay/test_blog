@@ -99,14 +99,20 @@ width: 100px;
 height: 100px;
 }
 .active{
-background-color: black;
+background-color:#99cfff;
 }
 
 .icon-selected {
-background-color: black;
+background-color: #99cfff;
 }
 .space{
-width: 5px
+width: 10px
 }
+.horizontal{
+  display: flex;
+  flex-direction: row;
+}
+
+
 
 
