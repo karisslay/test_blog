@@ -51,37 +51,129 @@
                     // if the user has already chosen one in a category, other buttons are disabled
 
             </script>
+<div>
+        <h1 style="font-family: quicksand;">Find An Adventure!</h1>
+    </div>
 
-            <div>
-                <h1 style="font-family: quicksand;">Find An Adventure!</h1>
-            </div>
+    <div class="space">
 
-            <div>
-               
-                <img
-                    src="/static/Type.png"
-                    alt="Type" 
-                    height="50" 
-                    width="300"
-                    class= "center"
-                    
-                />
-                
-                
-                
-                <i class="fa fa-tree test-icon"></i>   
-                <i class="fa fa-shopping-cart shopping-icon"></i>     
-                <i class="fa fa-film film-icon"></i>
-                <i class="fa fa-landmark landmark-icon"></i>
-                <i class="fa fa-coffee cafe-icon"></i>
-                <i class="fa fa-utensils food-icon"></i>
+    </div>
 
-
-
-            </div>
+    <div id="thingy">
+       
+        <img
+            src="/static/Type.png"
+            alt="Type" 
+            height="50" 
+            width="300"
+            class= "center"
             
-            <!-- The first row: Location and Time -->
-            <div>
+        />
+        <button id="tree-button">
+            <i class="fa fa-tree big test-icon"></i>
+        </button>
+
+        <p id="demo"></p>
+
+        <script>
+            $("#tree-button").on("click", function() {
+                console.log("HERE")
+                $(this).addClass("icon-selected")
+            })
+        </script>
+
+        
+        <button id="shopping-button">
+                <i class="fa fa-shopping-cart big shopping-icon"></i>
+            </button>
+
+            <p id="demo"></p>
+
+            <script>
+                $("#shopping-button").on("click", function() {
+                    console.log("HERE")
+                    $(this).addClass("icon-selected")
+                })
+        </script>
+
+
+        <button id="film-button">
+                <i class="fa fa-film big film-icon"></i>
+            </button>
+
+            <p id="demo"></p>
+
+            <script>
+                $("#film-button").on("click", function() {
+                    console.log("HERE")
+                    $(this).addClass("icon-selected")
+                })
+        </script>
+
+
+
+
+        <button id="landmark-button">
+                <i class="fa fa-landmark big landmark-icon"></i>
+            </button>
+
+            <p id="demo"></p>
+
+            <script>
+                $("#landmark-button").on("click", function() {
+                    console.log("HERE")
+                    $(this).addClass("icon-selected")
+                })
+        </script>
+
+
+        <button id="coffee-button">
+                <i class="fa fa-coffee big cafe-icon"></i>
+            </button>
+
+            <p id="demo"></p>
+
+            <script>
+                $("#coffee-button").on("click", function() {
+                    console.log("HERE")
+                    $(this).addClass("icon-selected")
+                })
+        </script>
+
+
+                        
+        <button id="utensils-button">
+                <i class="fa fa-utensils big food-icon"></i>
+            </button>
+
+            <p id="demo"></p>
+
+            <script>
+                $("#utensils-button").on("click", function() {
+                    console.log("HERE")
+                    $(this).addClass("icon-selected")
+                })
+        </script>
+
+    
+
+       
+        <div class="btn-group">
+                <button>tree-button</button>
+                <button>shopping-button</button>
+                <button>film-button</button>
+                <button>landmark-button</button>
+                <button>coffee-button</button>
+                <button>utensils-button</button>
+        </div>
+              
+
+
+    </div>
+    
+    <!-- The first row: Location and Time -->
+    <div>
+
 
                 <img
                     src="/static/location/Location.png"
