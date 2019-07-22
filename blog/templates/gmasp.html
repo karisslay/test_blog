@@ -1,6 +1,7 @@
 {% extends "index.html" %}
+
 {% load static %}
-<!-- AIzaSyBatSFsLO7FcTGtpxjP7FcAwKaevJb1N_k -->
+
 <html>
     {% block content %}
     <body>
@@ -11,10 +12,23 @@
         <head>
             <link rel="stylesheet" type="text/css" href="/static/css/get_started_bttn.css" />   
             <link rel="stylesheet" type="text/css" href="/static/css/find_route_bttn.css" />   
+            <script type="text/javascript" src="cookies.js"></script>
+
         </head>
+        
 
         <script>
             document.addEventListener("DOMContentLoaded", load);
+
+            
+            var destination = "San Francisco Twin Peaks"
+
+            var travel_mode                        
+
+            var driving = getCookie(driving);
+            var walking = getCookie(walking);
+            var transit = getCookie(transit);
+            var bicycling = getCookie(bicycling);
 
             var map
             var user_latitude 
@@ -23,9 +37,6 @@
             var end_location
             var end_coords
            
-            var destination = "San Francisco Twin Peaks"
-
-            var travel_mode = "DRIVING" //"TRANSIT" "BICYCLING" "WALKING"                                              // do this//
 
             function load() {
                 getLocation()
@@ -59,38 +70,37 @@
 
 
             function user_pos_marker() {
-                var marker1 = new google.maps.Marker({                                       //makes marker//
-                    position: {
+                var marker1 = new google.maps.Marker({                                     
                     lat: user_latitude,
                     lng: user_longitude,
                 },
-                });
+                );
 
-                marker1.setMap(map);                                                         //puts marker on map//
-                console.log("set user marker")
+                marker1.setMap(map);                                                       
+                // console.log("set user marker")
 
             }
 
             function end_pos_marker() {
 
-                var marker2 = new google.maps.Marker({                                       //makes marker//
+                var marker2 = new google.maps.Marker({                                      
                     position: end_coords,
                     
                 });
 
-                marker2.setMap(map);                                                         //puts marker on map//
+                marker2.setMap(map);                                                   
                 console.log("set destination marker")
 
             }
 
             function myMap() {
                 
-                var mapProp = {                                                             //sets properties of map//
+                var mapProp = {                                                          
                     center: new google.maps.LatLng(user_latitude, user_longitude),
                     zoom: 13,
                 };
 
-                map = new google.maps.Map(document.getElementById("googleMap"), mapProp);   //makes map//
+                map = new google.maps.Map(document.getElementById("googleMap"), mapProp);  
                 
             }
 
@@ -124,9 +134,46 @@
             }
 
 
+            function getCookie(cname) {
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                var ca = decodedCookie.split(';');
+                for(var i = 0; i <ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+
+            function settravelmode() {
+                if (driving==true) {
+                    travel_mode="DRIVING";
+                }
+                if (transit==true) {
+                    travel_mode="TRANSIT";
+                }
+                if (walking==true) {
+                    travel_mode="WALKING";
+                }
+                if (bicycling==true) {
+                    travel_mode="BICYCLING";
+                }
+                else {
+                    travel_mode="DRIVING";
+                }
+
+                console.log("travelmode set")
+            }
+
+
             function calcRoute() {         
                 var directionsService = new google.maps.DirectionsService();
-                var directionsDisplay = new google.maps.DirectionsRenderer();            //calculates route??//
+                var directionsDisplay = new google.maps.DirectionsRenderer();        
 
                 geocide();
 
@@ -136,7 +183,9 @@
                 }
                 var end = end_coords;
 
-                var request = {                                                         // route calculating options//
+                settravelmode();
+
+                var request = {                                                        
                     origin: start,
                     destination: end,
                     travelMode: travel_mode, 
@@ -145,17 +194,16 @@
                 };
 
                 
-                console.log("calcroute called")
-
                 end_pos_marker();
 
                 directionsService.route(request, function(result, status) {
                     if (status == 'OK') {
-                    console.log("directions");
-                    directionsDisplay.setMap(map);
-                    directionsDisplay.setDirections(result);                            //displays directions?? //
-                    }
+                        console.log("directions");
+                        directionsDisplay.setMap(map);
+                        directionsDisplay.setDirections(result);                           
+                        }
                     else {
+                        window.alert("Failed to grab directions, please try again in a a few seconds. ");
                         console.log("directions failed");
                     }
                 });
