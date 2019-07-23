@@ -113,9 +113,12 @@
             }
 
             function geocide() {
+                console.log("geocide called")
                 var geocoder = new google.maps.Geocoder()
 
                 findplace();
+
+                console.log("back to geocide")
 
                 geocoder.geocode(
                     {
@@ -128,7 +131,7 @@
                             lat = end_location.lat()
                             lng = end_location.lng()
                             
-                            end_coords = {
+                            end_coords = {                                      //PROBLEM
                                 lat: lat,
                                 lng: lng,
                             };
@@ -168,6 +171,8 @@
             }
 
             function findplace() {
+                console.log("findplace called")
+
                 var place = new google.maps.places.PlacesService();
 
                 if (type==undefined) {
@@ -184,13 +189,18 @@
                 
                 };
 
+
                 place.findPlaceFromQuery(request, function(results, status) {       //what kind of data does this return?
+                    console.log("OK: ", google.maps.places.PlacesServiceStatus.OK)
+
                     if (status === google.maps.places.PlacesServiceStatus.OK) {
-                    for (var i = 0; i < results.length; i++) {
-                        createMarker(results[i]);
-                    }
-                    console.log(results[0])
-                    destination = (results[0]);                               //        <--------    
+                        for (var i = 0; i < results.length; i++) {
+                            createMarker(results[i]);
+                        }
+
+                        console.log("HERE", results[0])
+
+                        destination = (results[0]);                               //        <--------    
                     }
 
                 });
@@ -221,7 +231,7 @@
                     console.log("set_type failed")
                 }
 
-                console.log(type)
+                console.log("type is " + type)
                 
             }
 
