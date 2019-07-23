@@ -3,172 +3,84 @@
 
 
 <html>
-        
     {% block content %}
-        <head>
-            
-            <title>Find An Adventure</title>
 
-            <!-- gets margin file -->
-            <link rel="stylesheet" type="text/css" href="/static/css/margin.css" />
+    <head>
+        <title>Find An Adventure</title>
 
-            <!-- gets header images -->
-            <link rel="stylesheet" type="text/css" href="/static/Type.png" />
-            <link rel="stylesheet" type="text/css" href="/static/Surprise.png" />
-            <link rel="stylesheet" type="text/css" href="/static/location/Location.png" />
-            <link rel="stylesheet" type="text/css" href="/static/time/Time.png" />
-            <link rel="stylesheet" type="text/css" href="/static/transportation/Transportation.png" />
-            <link rel="stylesheet" type="text/css" href="/static/budget/Budget.png" />
+        <!-- gets margin file -->
+        <link rel="stylesheet" type="text/css" href="/static/css/margin.css" />
 
-            <!-- gets css files for headers -->
-            <link rel="stylesheet" type="text/css" href="/static/css/align.css" />
+        <!-- gets header images -->
+        <link rel="stylesheet" type="text/css" href="/static/Type.png" />
+        <link rel="stylesheet" type="text/css" href="/static/Surprise.png" />
+        <link rel="stylesheet" type="text/css" href="/static/location/Location.png" />
+        <link rel="stylesheet" type="text/css" href="/static/time/Time.png" />
+        <link rel="stylesheet" type="text/css" href="/static/transportation/Transportation.png" />
+        <link rel="stylesheet" type="text/css" href="/static/budget/Budget.png" />
 
-            <!-- gets css files for bar buttons -->
-            <link rel="stylesheet" type="text/css" href="/static/css/bar_bttns.css" />
+        <!-- gets css files for headers -->
+        <link rel="stylesheet" type="text/css" href="/static/css/align.css" />
 
-            <!-- gets css file for red buttons: find my adventure button -->
-            <link rel="stylesheet" type="text/css" href="/static/css/red_bttns.css" />
+        <!-- gets css files for bar buttons -->
+        <link rel="stylesheet" type="text/css" href="/static/css/bar_bttns.css" />
 
-            <!-- gets margin css file -->
-            <link rel="stylesheet" type="text/css" href="/static/css/margins.css" />
+        <!-- gets css file for red buttons: find my adventure button -->
+        <link rel="stylesheet" type="text/css" href="/static/css/red_bttns.css" />
 
-            <!-- loads javascript -->
-            <link rel="stylesheet" type="text/javascript" href="/static/js/bar_bttns.js" />
+        <!-- gets margin css file -->
+        <link rel="stylesheet" type="text/css" href="/static/css/margins.css" />
 
-            <!-- loads python file for bar button clicking -->
-            <link rel="stylesheet" type="text/javascript" href="/static/python/bar_bttns.py" />
+        <!-- loads javascript -->
+        <link rel="stylesheet" type="text/javascript" href="/static/js/bar_bttns.js" />
 
-           
-    
-        </head>
-        <script type="text/javascript" src="/static/bar_bttns.js"></script>
+        <!-- loads python file for bar button clicking -->
+        <link rel="stylesheet" type="text/javascript" href="/static/python/bar_bttns.py" />
 
-        <body>
+        
+    </head>
 
-            <script id="bar_bttns.js"></script>
-            
+    <script type="module" src="/static/bar_bttns.js"></script>
 
-            
+    <body>
+        <div>
+            <h1 style="font-family: quicksand;">Find An Adventure!</h1>
+        </div>
 
-            <script>
-                // console.log(location_chosen);
-                // check_if_finished(); //loops contiunously while user is still choosing criteria
-                    // if the user has already chosen one in a category, other buttons are disabled
-
-
-                    
-
-                    var budget_button_dict = [];
-
-                    budget_button_dict.push = {
-
-                        "free": "enabled",
-                        "five_twenty": "enabled",
-                        "twenty_fifty": "enabled",
-                        "fifty_plus": "enabled",
-
-                    }
-
-
-                    var time_button_dict = [];
-
-                    time_button_dict.push = {
-
-                        "2_hours": "enabled",
-                        "4_hours": "enabled",
-                        "6_hours": "enabled",
-                        "6_plus_hours": "enabled",
-
-                    }
-
-
-                    var transportation_button_dict = [];
-
-                    transportation_button_dict.push = {
-
-                        "walking": "enabled",
-                        "car": "enabled",
-                        "ferry": "enabled",
-                        "public_transportation": "enabled",
-                    }
-
-                    
-
-
-                    function set_button_status (button_id, dictionary) {
-
-                        var button_dict_keys = dictionary.keys();
-                        
-                        for (key of button_dict_keys) {
-                            if (key != button_id && dictionary[key] == "enabled") {
-                                dictionary[button] = "disabled";
-
-                            }
-                        } 
-
-                        reset_buttons = true;
-
-                    }
-
-
-
-
-            </script>
-<div>
-        <h1 style="font-family: quicksand;">Find An Adventure!</h1>
-   
-   
-    </div>
-</div>
-
-    </div>
-
-</div class="space">
-
-    </div>
-
-    <img
+        <img
             src="/static/Type.png"
             alt="Type" 
             height="50" 
             width="300"
             class= "center"
+        />
 
-            />
-                
+        <div id="thingy" class="horizontal" >
+            <button id="tree-button">
+                <i class="fa fa-tree big test-icon"></i>
+            </button>
 
-    <div id="thingy" class="horizontal" >
-       
-        
-        <button id="tree-button">
-            <i class="fa fa-tree big test-icon"></i>
-        </button>
+            <p id="demo"></p>
 
-        <p id="demo"></p>
+            <script>
+                $("#tree-button").on("click", function() {
+                    $(this).addClass("icon-selected")
+                })
+            </script>
+            
+            <button id="shopping-button">
+                <i class="fa fa-shopping-cart big shopping-icon"></i>
+            </button>
 
-        <script>
-            $("#tree-button").on("click", function() {
-                console.log("HERE")
-                $(this).addClass("icon-selected")
-            })
-        </script>
+            <p id="demo"></p>
 
-        
-        <button id="shopping-button">
-            <i class="fa fa-shopping-cart big shopping-icon"></i>
-        </button>
+            <script>
+                $("#shopping-button").on("click", function() {
+                    $(this).addClass("icon-selected")
+                })
+            </script>
 
-        <p id="demo"></p>
-
-        <script>
-            $("#shopping-button").on("click", function() {
-                console.log("HERE")
-                $(this).addClass("icon-selected")
-            })
-        </script>
-
-
-        <button id="film-button">
+            <button id="film-button">
                 <i class="fa fa-film big film-icon"></i>
             </button>
 
@@ -176,15 +88,11 @@
 
             <script>
                 $("#film-button").on("click", function() {
-                    console.log("HERE")
                     $(this).addClass("icon-selected")
                 })
-        </script>
+            </script>
 
-
-
-
-        <button id="landmark-button">
+            <button id="landmark-button">
                 <i class="fa fa-landmark big landmark-icon"></i>
             </button>
 
@@ -192,13 +100,11 @@
 
             <script>
                 $("#landmark-button").on("click", function() {
-                    console.log("HERE")
                     $(this).addClass("icon-selected")
                 })
-        </script>
+            </script>
 
-
-        <button id="coffee-button">
+            <button id="coffee-button">
                 <i class="fa fa-coffee big cafe-icon"></i>
             </button>
 
@@ -206,14 +112,11 @@
 
             <script>
                 $("#coffee-button").on("click", function() {
-                    console.log("HERE")
                     $(this).addClass("icon-selected")
                 })
-        </script>
-
-
-                        
-        <button id="utensils-button">
+            </script>
+                            
+            <button id="utensils-button">
                 <i class="fa fa-utensils big food-icon"></i>
             </button>
 
@@ -221,375 +124,309 @@
 
             <script>
                 $("#utensils-button").on("click", function() {
-                    console.log("HERE")
                     $(this).addClass("icon-selected")
                 })
-        </script>
-
-    
-
-               
-
-
-    </div>
-    
-    <!-- The first row: Location and Time -->
-    <div>
-
-
-                <img
-                    src="/static/location/Location.png"
-                    alt="Type" 
-                    height="50" 
-                    width="300"
-                    class= "align_left"
-                    
-                />
-
-                <div class="bar_buttons">
-
-                    <a id="San Francisco Btn" class="btn bar_btn_custom btn_align_left">San Francisco
-
-                        <script>
-                            
-                            document.getElementById("San Francisco Btn").onclick = function() {San_Francisco()};
-
-                            function San_Francisco() {
-                                document.getElementById("San Francisco Btn").style.backgroundColor = "#99cfff";
-                                
-                                location_chosen = true
-                                return location_chosen;
-                            }
-                        </script>
-                    </a>
-
-                    <a id="Palo_Alto_Btn" class="btn bar_btn_custom btn_align_left">Palo Alto</a>
-                        
-                        <script>
-                            document.getElementById("Palo_Alto_Btn").onclick = function() {palo_alto()};
-
-                            function palo_alto() {
-                                
-                                
-                                string = "Palo_Alto_Btn";
-                                if (location_chosen == true) {
-                                    document.getElementById(string).className = "disable_bttn";
-                                }
-                                else if (location_chosen == false) {
-
-                                    document.getElementById("string").style.backgroundColor = "#99cfff";
-                                }
-                            }
-                        </script>
-
-                    <script> 
-
-                        // dict = location_button_dict;
-
-                        // var button_dict_keys = dict.keys();
-                
-                    
-                    </script>
-                   
-
-                     <!-- Oakland code: -->
-                    <!-- {% if reset_buttons == true %}
-
-                        {% for key in button_dict_keys %}
-
-                            {% ifequal value 'disabled' %}
-                            <a id="Oakland Btn" class="btn bar_btn_custom btn_align_left disable_bttn">Oakland</a>
-
-                            {% else ifequal value 'enabled' %}
-                            <a id="Oakland Btn" class="btn bar_btn_custom btn_align_left">Oakland</a>
-
-                        {% endfor %}
-
-                    {% endif %} -->
-                    <script>
-
-                        import {location_button_dict} from './bar_bttns.js'
-
-                        import {button_dict_keys} from './bar_bttns.js'
-
-                        console.log(location_button_dict);
-                        console.log("hi");
-
-
-                        
-                    </script>
-
-                    
-
-                    <a id="oakland_button" onclick = "oakie() " class="btn bar_btn_custom btn_align_left">Oakland</a>
-                    
-                
- 
-                    <script>
-
-                        function oakie(){
-                            import {location_button_dict} from './bar_bttns.js'
-
-                            import {button_dict_keys} from './bar_bttns.js'
-
-                            src="/static/bar_bttns.js"
-                        
-                            document.getElementById("oakland_button").onclick = console.log("hi");
-                            // document.getElementById("oakland_button").onclick = set_button_status("oakland_button", location_button_dict);
-                            
-                            change_button_status (this.location_button_dict, oakland_id, Oakland);
-
-                            // document.getElementById("Oakland Btn").onclick = function() {Oakland()};
-
-                            // function Oakland() {
-                            //     document.getElementById("Oakland Btn").style.backgroundColor = "#99cfff";
-                            
-                            // }
-
-
-
-                        }
-
-                        
-                    </script>
-
-
-
-                    
-                    <!-- Fremont code: -->
-
-                    <a id="fremont_button" class="btn bar_btn_custom btn_align_left">Fremont</a>
-                    <script>
-
-                        import {location_button_dict} from './bar_bttns.js'
-
-                        import {button_dict_keys} from './bar_bttns.js'
-
-                        
-                        src = "bar_bttns.js"
-                        document.getElementById("fremont_button").onclick = set_button_status("fremont_button", location_button_dict);
-                        change_button_status (this.location_button_dict, Fremont, fremont_button);
-                    
-                        // document.getElementById("Fremont Btn").onclick = function() {Fremont()};
-
-                        // function Fremont() {
-                        //     document.getElementById("Fremont Btn").style.backgroundColor = "#99cfff";
-                        // }
-                    </script>
-
-
-
-                    <!-- Walnut Creek code: -->
-                    <a id="Walnut Creek Btn" class="btn bar_btn_custom btn_align_left">Walnut Creek</a>
-                        
-                        <script>
-                            document.getElementById("Walnut Creek Btn").onclick = function() {Walnut_Creek()};
-
-                            function Walnut_Creek() {
-                            document.getElementById("Walnut Creek Btn").style.backgroundColor = "#99cfff";
-                            }
-                        </script>
-                    
-                </div>
-
-
-
-                
-                <!-- Time buttons group: -->
-                <img
-                    src="/static/time/Time.png"
-                    alt="Type" 
-                    height="50" 
-                    width="300"
-                    class= "align_right"
-                
-                />
-
-                <div class="bar_buttons">
-
-                    <a id="2 Hours Btn" class="btn bar_btn_custom btn_align_right">2 Hours</a>
-
-                        <script>
-                            document.getElementById("2 Hours Btn").onclick = function() {two_h()};
-
-                            function two_h() {
-                            document.getElementById("2 Hours Btn").style.backgroundColor = "#99cfff";
-                            }
-                        </script>
-                    
-                    <a id="4 Hours Btn" class="btn bar_btn_custom btn_align_right">4 Hours</a>
-                    
-                        <script>
-                            document.getElementById("4 Hours Btn").onclick = function() {four_h()};
-
-                            function four_h() {
-                            document.getElementById("4 Hours Btn").style.backgroundColor = "#99cfff";
-                            }
-                        </script>
-
-                    <a id="6 Hours Btn" class="btn bar_btn_custom btn_align_right" >6 Hours</a>
-
-                        <script>
-                            document.getElementById("6 Hours Btn").onclick = function() {six_h()};
-
-                            function six_h() {
-                            document.getElementById("6 Hours Btn").style.backgroundColor = "#99cfff";
-                            }
-                        </script>
-                    
-                    <a id="6+ Hours Btn" class="btn bar_btn_custom btn_align_right" >6+ Hours</a>
-
-                        <script>
-                            document.getElementById("6+ Hours Btn").onclick = function() {sixplus_h()};
-
-                            function sixplus_h() {
-                            document.getElementById("6+ Hours Btn").style.backgroundColor = "#99cfff";
-                            }
-                        </script>
-                    
-                </div>
-
+            </script>
+        </div>
+
+        <!-- The first row: Location and Time -->
+        <div>
+            <img
+                src="/static/location/Location.png"
+                alt="Type" 
+                height="50" 
+                width="300"
+                class= "align_left"
+            />
+
+            <div class="bar_buttons">
+                <a id="San Francisco Btn" class="btn bar_btn_custom btn_align_left">
+                    San Francisco 
+                </a>
+
+                <a id="Palo_Alto_Btn" class="btn bar_btn_custom btn_align_left">
+                    Palo Alto
+                </a>
+
+                <a id="oakland_button" class="btn bar_btn_custom btn_align_left">
+                    Oakland
+                </a>
+
+                <a id="fremont_button" class="btn bar_btn_custom btn_align_left">
+                    Fremont
+                </a>
+
+                <a id="Walnut Creek Btn" class="btn bar_btn_custom btn_align_left">
+                    Walnut Creek
+                </a>
             </div>
             
-            <!-- The second row: Budget and Transportation -->
-            <div>
+            <!-- Time buttons group: -->
+            <img
+                src="/static/time/Time.png"
+                alt="Type" 
+                height="50" 
+                width="300"
+                class= "align_right"
+            />
+
+            <div class="bar_buttons">
+                <a id="2 Hours Btn" class="btn bar_btn_custom btn_align_right">2 Hours</a>
+
+                <a id="4 Hours Btn" class="btn bar_btn_custom btn_align_right">4 Hours</a>
+
+                <a id="6 Hours Btn" class="btn bar_btn_custom btn_align_right" >6 Hours</a>
+                
+                <a id="6+ Hours Btn" class="btn bar_btn_custom btn_align_right" >6+ Hours</a>
+            </div>
+        </div>
         
-                <img
-                    src="/static/budget/Budget.png"
-                    alt="Type" 
-                    height="50" 
-                    width="300"
-                    class= "align_left"
-                    
-                />
-                
-                <div class="bar_buttons">
-
-                    <a id="Free Btn" class="btn bar_btn_custom btn_align_left">Free</a>
-
-                        <script>
-                            document.getElementById("Free Btn").onclick = function() {Free()};
-
-                            function Free() {
-                            document.getElementById("Free Btn").style.backgroundColor = "#99cfff";
-                            }
-                        </script>
-                    
-                    <a id="5-20 Btn" class="btn bar_btn_custom btn_align_left">$5 - $20</a>
-                        
-                        <script>
-                            document.getElementById("5-20 Btn").onclick = function() {five_twenty()};
-
-                            function five_twenty() {
-                            document.getElementById("5-20 Btn").style.backgroundColor = "#99cfff";
-                            }
-                        </script>
-                    
-                    <a id="20-50 Btn" class="btn bar_btn_custom btn_align_left">$20 - $50</a>
-
-                        <script>
-                            document.getElementById("20-50 Btn").onclick = function() {twenty_fifty()};
-
-                            function twenty_fifty() {
-                            document.getElementById("20-50 Btn").style.backgroundColor = "#99cfff";
-                            }
-                        </script>
-                    
-                    <a id="$50+ Btn" class="btn bar_btn_custom btn_align_left">$50+</a>
-
-                        <script>
-                            document.getElementById("$50+ Btn").onclick = function() {fifty_plus()};
-
-                            function fifty_plus() {
-                            document.getElementById("$50+ Btn").style.backgroundColor = "#99cfff";
-                            }
-                        </script>
-                    
-                </div>
-
-               
-                <img
-                    src="/static/transportation/Transportation.png"
-                    alt="Type" 
-                    height="50" 
-                    width="300"
-                    class= "align_right"
-                    
-                />
-
-                <div class="bar_buttons">
-
-                    <a id="Walking Btn" class="btn bar_btn_custom btn_align_right">Walking</a>
-
-                        <script>
-                            document.getElementById("Walking Btn").onclick = function() {walking()};
-
-                            function walking() {
-                            document.getElementById("Walking Btn").style.backgroundColor = "#99cfff";
-                            }
-                        </script>
-                    
-                    <a id="Car Btn" class="btn bar_btn_custom btn_align_right">Car</a>
-
-                        <script>
-                            document.getElementById("Car Btn").onclick = function() {Car()};
-
-                            function Car() {
-                            document.getElementById("Car Btn").style.backgroundColor = "#99cfff";
-                            }
-                        </script>
-                    
-                    <a id="Ferry Btn" class="btn bar_btn_custom btn_align_right">Ferry</a>
-
-                        <script>
-                            document.getElementById("Ferry Btn").onclick = function() {Ferry()};
-
-                            function Ferry() {
-                            document.getElementById("Ferry Btn").style.backgroundColor = "#99cfff";
-                            }
-                        </script>
-                    
-                    <a id="Public Transportation Btn" class="btn bar_btn_custom btn_align_right">Public Transportation</a>
-
-                        <script>
-                            document.getElementById("Public Transportation Btn").onclick = function() {Public_Transportation()};
-
-                            function Public_Transportation() {
-                            document.getElementById("Public Transportation Btn").style.backgroundColor = "#99cfff";
-                            }
-                        </script>
-                    
-                </div>
-
-            </div>
-
+        <!-- The second row: Budget and Transportation -->
+        <div id="second_row" >
+            <img
+                src="/static/budget/Budget.png"
+                alt="Type" 
+                height="50" 
+                width="300"
+                class= "align_left"
+            />
             
-
-            <div>
+            <div class="bar_buttons">
+                <a id="Free Btn" class="btn bar_btn_custom btn_align_left">Free</a>
                 
-                <img
-                    src="/static/Surprise.png"
-                    alt="Type" 
-                    height="50" 
-                    width="300"
-                    class= "center"
-                    
-                >
+                <a id="5-20 Btn" class="btn bar_btn_custom btn_align_left">$5 - $20</a>
+                
+                <a id="20-50 Btn" class="btn bar_btn_custom btn_align_left">$20 - $50</a>
+                
+                <a id="$50+ Btn" class="btn bar_btn_custom btn_align_left">$50+</a>
             </div>
-
-            <div>
-                <a id="find_my_adv_bttn" class="btn btn_red_custom center find_my_adv">Find My Adventure!</a>
-
-                <script>
-                    if (document.getElementById("find_my_adv_bttn").onclick == true) {
-                        var choosing_criteria = false;
-                    }
-                </script>
-            </div>
-
             
+            <img
+                src="/static/transportation/Transportation.png"
+                alt="Type" 
+                height="50" 
+                width="300"
+                class= "align_right"
+            />
 
-        </body>
+            <div class="bar_buttons">
+                <a id="Walking Btn" class="btn bar_btn_custom btn_align_right">
+                    Walking
+                </a>
+                
+                <a id="Car Btn" class="btn bar_btn_custom btn_align_right">
+                    Car
+                </a>
+                    
+                <a id="Ferry Btn" class="btn bar_btn_custom btn_align_right">
+                    Ferry
+                </a>
+
+                <a id="Public Transportation Btn" class="btn bar_btn_custom btn_align_right">
+                    Public Transportation
+                </a>
+            </div>
+        </div>
+
+        <div>
+            <img
+                src="/static/Surprise.png"
+                alt="Type" 
+                height="50" 
+                width="300"
+                class= "center"
+            >
+        </div>
+
+        <div>
+            <a id="find_my_adv_bttn" class="btn btn_red_custom center find_my_adv">
+                Find My Adventure!
+            </a>
+        </div>
+    </body>
+
+    <script>
+        // console.log(location_chosen);
+        // check_if_finished(); //loops contiunously while user is still choosing criteria
+            // if the user has already chosen one in a category, other buttons are disabled
+
+        const budget_button_dict = {
+            "free": "enabled",
+            "five_twenty": "enabled",
+            "twenty_fifty": "enabled",
+            "fifty_plus": "enabled",
+        }
+
+        const time_button_dict = {
+            "2_hours": "enabled",
+            "4_hours": "enabled",
+            "6_hours": "enabled",
+            "6_plus_hours": "enabled",
+        }
+
+        const transportation_button_dict = {
+            "walking": "enabled",
+            "car": "enabled",
+            "ferry": "enabled",
+            "public_transportation": "enabled",
+        }
+
+        console.log("hi1");
+
+        import { location_button_dict } from './bar_bttns'
+        import { button_dict_keys } from './bar_bttns'
+
+        console.log(location_button_dict);
+        console.log("hi");
+
+        document.getElementById("oakland_button").addEventListener("click", function() {
+            set_button_status("oakland_button", location_button_dict)
+        })
+
+        document.getElementById("San Francisco Btn").onclick = function() { San_Francisco() };
+
+        function San_Francisco() {
+            document.getElementById("San Francisco Btn").style.backgroundColor = "#99cfff";
+            
+            location_chosen = true
+            return location_chosen;
+        }
+
+        document.getElementById("Palo_Alto_Btn").onclick = function() { palo_alto() };
+
+        function palo_alto() {
+            string = "Palo_Alto_Btn";
+
+            if (location_chosen == true) {
+                document.getElementById(string).className = "disable_bttn";
+            }
+            else if (location_chosen == false) {
+
+                document.getElementById("string").style.backgroundColor = "#99cfff";
+            }
+        }
+
+        import { location_button_dict } from './bar_bttns'
+        import { button_dict_keys } from './bar_bttns'
+        
+        document.getElementById("fremont_button").onclick = set_button_status("fremont_button", location_button_dict);
+        
+        change_button_status(location_button_dict, Fremont, fremont_button);
+
+        document.getElementById("Walnut Creek Btn").onclick = function() {Walnut_Creek()};
+
+        function Walnut_Creek() {
+            document.getElementById("Walnut Creek Btn").style.backgroundColor = "#99cfff";
+        }
+
+        document.getElementById("2 Hours Btn").onclick = function() {two_h()};
+
+        function two_h() {
+            document.getElementById("2 Hours Btn").style.backgroundColor = "#99cfff";
+        }
+
+        document.getElementById("4 Hours Btn").onclick = function() {four_h()};
+
+        function four_h() {
+            document.getElementById("4 Hours Btn").style.backgroundColor = "#99cfff";
+        }
+
+        document.getElementById("6 Hours Btn").onclick = function() {six_h()};
+
+        function six_h() {
+            document.getElementById("6 Hours Btn").style.backgroundColor = "#99cfff";
+        }
+
+        document.getElementById("6+ Hours Btn").onclick = function() {sixplus_h()};
+
+        function sixplus_h() {
+            document.getElementById("6+ Hours Btn").style.backgroundColor = "#99cfff";
+        }
+
+        document.getElementById("Walking Btn").onclick = function() {walking()};
+
+        function walking() {
+            document.getElementById("Walking Btn").style.backgroundColor = "#99cfff";
+        }
+
+        document.getElementById("Car Btn").onclick = function() {Car()};
+
+        function Car() {
+            document.getElementById("Car Btn").style.backgroundColor = "#99cfff";
+        }
+
+        document.getElementById("Ferry Btn").onclick = function() {Ferry()};
+
+        function Ferry() {
+            document.getElementById("Ferry Btn").style.backgroundColor = "#99cfff";
+        }
+
+        document.getElementById("Public Transportation Btn").onclick = function() {Public_Transportation()};
+
+        function Public_Transportation() {
+            document.getElementById("Public Transportation Btn").style.backgroundColor = "#99cfff";
+        }
+
+        // if (document.getElementById("find_my_adv_bttn").onclick == true) {
+        //     var choosing_criteria = false;
+        // }
+    
+        // document.getElementById("Fremont Btn").onclick = function() {Fremont()};
+
+        // function Fremont() {
+        //     document.getElementById("Fremont Btn").style.backgroundColor = "#99cfff";
+        // }
+
+        // console.log("hi1");
+
+        // import { location_button_dict } from './bar_bttns'
+        // import { button_dict_keys } from './bar_bttns'
+
+        // console.log(location_button_dict);
+        // console.log("hi");
+
+        // document.getElementById("oakland_button").addEventListener("click", function() {
+        //     set_button_status("oakland_button", location_button_dict)
+        // })
+
+        // function oak(){
+        //     import {location_button_dict} from './bar_bttns.js'
+        //     import { button_dict_keys } from './bar_bttns.js'
+
+        //     src="/static/bar_bttns.js"
+
+        //     document.getElementById("oakland_button").onclick = console.log("hi");
+        //     document.getElementById("oakland_button").onclick = set_button_status("oakland_button", location_button_dict);
+
+        //     change_button_status(this.location_button_dict, oakland_id, Oakland);
+        // }
+
+
+        // document.getElementById("oakland_button").onclick = function () {
+        // };
+        
+        // document.getElementById("Oakland Btn").onclick = function() {Oakland()};
+
+        // function Oakland() {
+        //     document.getElementById("Oakland Btn").style.backgroundColor = "#99cfff";
+        
+        // }
+
+        // function set_button_status (button_id, dictionary) {
+
+        //     var button_dict_keys = dictionary.keys();
+            
+        //     for (key of button_dict_keys) {
+        //         if (key != button_id && dictionary[key] == "enabled") {
+        //             dictionary[button] = "disabled";
+
+        //         }
+        //     } 
+
+        //     reset_buttons = true;
+
+        // }
+    </script>
 
     {% endblock content %}
 
