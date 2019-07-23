@@ -22,12 +22,32 @@ var dict = null;
 
 
 
+var location_button_dict = [{
+        
+        "san_francisco": "enabled",
+        "palo_alto": "enabled",
+        "oakland": "enabled",
+        "fremont": "enabled",
+        "walnut_creek": "enabled",
+
+    }];
+
+var button_dict_keys = location_button_dict.keys();
+
+export {location_button_dict}
+export {button_dict_keys}
+
+
 
 
 
 function set_button_status (button_id, dictionary) {
     
-    var button_dict_keys = dictionary.keys();
+    console.log("hi1");
+    var button_dict_keys = [];
+    button_dict_keys.push(dictionary.keys());
+    console.log(button_dict_keys);
+    console.log("hi");
     
     for (key of button_dict_keys) {
         if (key != button_id && dictionary[button] == "enabled") {
@@ -76,6 +96,7 @@ location_button_dict.push = {
     "walnut_creek": "enabled",
 
 }
+
 
 
 

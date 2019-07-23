@@ -2,7 +2,6 @@
 {% load static %}
 
 
-
 <html>
         
     {% block content %}
@@ -42,8 +41,14 @@
            
     
         </head>
+        <script type="text/javascript" src="/static/bar_bttns.js"></script>
 
         <body>
+
+            <script id="bar_bttns.js"></script>
+            
+
+            
 
             <script>
                 // console.log(location_chosen);
@@ -53,23 +58,60 @@
 
                     
 
-                    dict = location_button_dict;
+                    var budget_button_dict = [];
 
-                    var button_dict_keys = dict.keys();
+                    budget_button_dict.push = {
+
+                        "free": "enabled",
+                        "five_twenty": "enabled",
+                        "twenty_fifty": "enabled",
+                        "fifty_plus": "enabled",
+
+                    }
+
+
+                    var time_button_dict = [];
+
+                    time_button_dict.push = {
+
+                        "2_hours": "enabled",
+                        "4_hours": "enabled",
+                        "6_hours": "enabled",
+                        "6_plus_hours": "enabled",
+
+                    }
+
+
+                    var transportation_button_dict = [];
+
+                    transportation_button_dict.push = {
+
+                        "walking": "enabled",
+                        "car": "enabled",
+                        "ferry": "enabled",
+                        "public_transportation": "enabled",
+                    }
+
+                    
+
 
                     function set_button_status (button_id, dictionary) {
 
                         var button_dict_keys = dictionary.keys();
                         
                         for (key of button_dict_keys) {
-                            if (key != button_id && dictionary[button] == "enabled") {
+                            if (key != button_id && dictionary[key] == "enabled") {
                                 dictionary[button] = "disabled";
 
                             }
                         } 
 
-                    reset_buttons = true;
+                        reset_buttons = true;
+
                     }
+
+
+
 
             </script>
 <div>
@@ -242,9 +284,9 @@
 
                     <script> 
 
-                        dict = location_button_dict;
+                        // dict = location_button_dict;
 
-                        var button_dict_keys = dict.keys();
+                        // var button_dict_keys = dict.keys();
                 
                     
                     </script>
@@ -264,22 +306,51 @@
                         {% endfor %}
 
                     {% endif %} -->
-
-                    <a id="oakland_button" class="btn bar_btn_custom btn_align_left">Oakland</a>
-                    
-                        
                     <script>
-                        console.log ("hi2");
-                        document.getElementById("oakland_button").onclick = set_button_status("oakland_button", location_button_dict);
-                        console.log ("hi1");
-                        change_button_status (location_button_dict, oakland_id, Oakland);
 
-                        // document.getElementById("Oakland Btn").onclick = function() {Oakland()};
+                        import {location_button_dict} from './bar_bttns.js'
 
-                        // function Oakland() {
-                        //     document.getElementById("Oakland Btn").style.backgroundColor = "#99cfff";
+                        import {button_dict_keys} from './bar_bttns.js'
+
+                        console.log(location_button_dict);
+                        console.log("hi");
+
+
                         
-                        // }
+                    </script>
+
+                    
+
+                    <a id="oakland_button" onclick = "oakie() " class="btn bar_btn_custom btn_align_left">Oakland</a>
+                    
+                
+ 
+                    <script>
+
+                        function oakie(){
+                            import {location_button_dict} from './bar_bttns.js'
+
+                            import {button_dict_keys} from './bar_bttns.js'
+
+                            src="/static/bar_bttns.js"
+                        
+                            document.getElementById("oakland_button").onclick = console.log("hi");
+                            // document.getElementById("oakland_button").onclick = set_button_status("oakland_button", location_button_dict);
+                            
+                            change_button_status (this.location_button_dict, oakland_id, Oakland);
+
+                            // document.getElementById("Oakland Btn").onclick = function() {Oakland()};
+
+                            // function Oakland() {
+                            //     document.getElementById("Oakland Btn").style.backgroundColor = "#99cfff";
+                            
+                            // }
+
+
+
+                        }
+
+                        
                     </script>
 
 
@@ -290,8 +361,14 @@
                     <a id="fremont_button" class="btn bar_btn_custom btn_align_left">Fremont</a>
                     <script>
 
+                        import {location_button_dict} from './bar_bttns.js'
+
+                        import {button_dict_keys} from './bar_bttns.js'
+
+                        
+                        src = "bar_bttns.js"
                         document.getElementById("fremont_button").onclick = set_button_status("fremont_button", location_button_dict);
-                        change_button_status (location_button_dict, Fremont, fremont_button);
+                        change_button_status (this.location_button_dict, Fremont, fremont_button);
                     
                         // document.getElementById("Fremont Btn").onclick = function() {Fremont()};
 
@@ -509,6 +586,8 @@
                     }
                 </script>
             </div>
+
+            
 
         </body>
 
