@@ -10,7 +10,7 @@
         <div id="googleMap" style="width:100%;height:400px;"></div>
         
         <head>
-            <link rel="stylesheet" type="text/css" href="/static/css/get_started_bttn.css" />   
+            <link rel="stylesheet" type="text/css" href="/static/css/red_bttns.css" />   
             <link rel="stylesheet" type="text/css" href="/static/css/find_route_bttn.css" />   
             <script type="text/javascript" src="/static/js/cookies.js"></script>
             <script type="text/javascript" src="/static/js/place_types_arrays.js"></script>
@@ -20,30 +20,28 @@
         <script>
             document.addEventListener("DOMContentLoaded", load);
 
-            var search_query = "hike"                   //do this
+            var search_query = "san francisco hike"                   //do this
 
             var travel_mode
-            
             var driving = getCookie("driving");
             var walking = getCookie("walking");
             var transit = getCookie("transit");
             var bicycling = getCookie("bicycling");
 
             var type 
-
             var outdoor_activity = getCookie("outdoor_activity");
             var indoor_activity = getCookie("indoor_activity");
             var restaurant = getCookie("restaurant");
             var cafe = getCookie("cafe");
             var shopping = getCookie("shopping");
             var museum = getCookie("museum");
+            // console.log(museum);
 
             var destination 
 
             var map
             var user_latitude 
             var user_longitude 
-            var pos_end_dest
             var end_location
             var end_coords
            
@@ -79,14 +77,15 @@
 
 
             function user_pos_marker() {
+
                 var marker1 = new google.maps.Marker({                                     
-                    lat: user_latitude,
-                    lng: user_longitude,
+                    position: {
+                        lat: user_latitude,
+                        lng: user_longitude,
+                    }
                 },
                 );
-
-                marker1.setMap(map);                                                       
-                // console.log("set user marker")
+                marker1.setMap(map); 
 
             }
 
@@ -116,6 +115,8 @@
             function geocide() {
                 var geocoder = new google.maps.Geocoder()
 
+                findplace();
+
                 geocoder.geocode(
                     {
                         address: destination,
@@ -128,12 +129,12 @@
                             lng = end_location.lng()
                             
                             end_coords = {
-                                lat,
-                                lng,
+                                lat: lat,
+                                lng: lng,
                             };
                         }
                         else {
-                            console.log("geocode failed")
+                            console.log("geocide failed")
                         }
                     },
                 );      
@@ -159,70 +160,83 @@
                     if (c.indexOf(name) == 0) {
                         return c.substring(name.length, c.length);
                     }
+
+                    //console.log(c.substring());
                 }
 
                 return "";
             }
 
             function findplace() {
-                var place = new google.maps.places.PlacesService(map);
+                var place = new google.maps.places.PlacesService();
 
-                set_type();
+                if (type==undefined) {
+                    set_type();
+                }  
 
                 var request = {
                     query: search_query,
-                    fields: ['name', 'formatted_address',type,],
-                    locationBias: {radius: 10000, center: {user_latitude, user_longitude}}
+                    fields: ['name', 'formatted_address', type],
+                    locationBias: {
+                        radius: 1000, 
+                        center: {lat: user_latitude, lng: user_longitude}
+                    },
                 
                 };
 
-                place.findPlaceFromQuery(request, function(results, status) {
+                place.findPlaceFromQuery(request, function(results, status) {       //what kind of data does this return?
                     if (status === google.maps.places.PlacesServiceStatus.OK) {
                     for (var i = 0; i < results.length; i++) {
                         createMarker(results[i]);
                     }
                     console.log(results[0])
-                    destination = (results[0]);
+                    destination = (results[0]);                               //        <--------    
                     }
 
                 });
             }   
 
             function set_type() {
-                if (outdoor_activity==true) {
+                console.log("set_type called")
+                if (outdoor_activity=='true') {
                     //psuedorandom pick a type from a list 
-                    type = pass
+                    type = pass;
                 }
-                else if (indoor_activity==true) {
-                    type = pass
+                else if (indoor_activity=='true') {
+                    type = pass;
                 }
-                else if (restaurant==true) {
-                    type = pass
+                else if (restaurant=='true') {
+                    type = pass;
                 }
-                else if (cafe==true) {
-                    type = pass
+                else if (cafe=='true') {
+                    type = pass;
                 }
-                else if (shopping==true) {
-                    type = pass
+                else if (shopping=='true') {
+                    type = pass;
                 }
-                else if (museum==true) {
-                    type = 'museum'
+                else if (museum=='true') {
+                    type = 'museum';
                 }
+                else {
+                    console.log("set_type failed")
+                }
+
+                console.log(type)
                 
             }
 
 
             function settravelmode() {
-                if (driving==true) {
+                if (driving=='true') {
                     travel_mode="DRIVING";
                 } 
-                else if (transit==true) {
+                else if (transit=='true') {
                     travel_mode="TRANSIT";
                 } 
-                else if (walking==true) {
+                else if (walking=='true') {
                     travel_mode="WALKING";
                 } 
-                else if (bicycling==true) {
+                else if (bicycling=='true') {
                     travel_mode="BICYCLING";
                 } 
                 else {
@@ -259,7 +273,7 @@
 
                 directionsService.route(request, function(result, status) {
                     if (status == 'OK') {
-                        console.log("directions");
+                        console.log("directions called");
                         directionsDisplay.setMap(map);
                         directionsDisplay.setDirections(result);                           
                     }
@@ -274,9 +288,9 @@
 
         </script>
 
-        <!-- gets info from google -->
+        <!-- gets map info from google -->
         <script 
-        src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBatSFsLO7FcTGtpxjP7FcAwKaevJb1N_k&callback=myMap" 
+        src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBatSFsLO7FcTGtpxjP7FcAwKaevJb1N_k&callback=myMap&libraries=places" 
         type="text/javascript"
         >
         </script>
@@ -285,6 +299,7 @@
         <div class="btn find_r_container"> 
             <button type="button" onclick="calcRoute()" class="btn find_r_button">Find your route</button>
         </div>
+
     </body>
 
     {% endblock content %}
