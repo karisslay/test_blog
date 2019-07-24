@@ -124,13 +124,14 @@
                     },
                     function(results, status) {
                         if (status == google.maps.GeocoderStatus.OK) {
+                           
                             end_location = results[0].geometry.location;
 
                             const lat = end_location.lat();
                             const lng = end_location.lng();
 
-                            console.log(lat)
-                            console.log(lng)
+                            console.log(lat);
+                            console.log(lng);
 
                             end_coords = {                                      //PROBLEM
                                 lat: lat,
@@ -143,8 +144,8 @@
                     },
                 );      
 
-                console.log(end_coords)
-                //console.log("geocide achieved")
+                //console.log(end_coords)
+                console.log("??")
             }
 
 
@@ -194,18 +195,18 @@
                 };
 
 
-                place.findPlaceFromQuery(request, function(results, status) {       //what kind of data does this return?
-                    console.log("OK: ", google.maps.places.PlacesServiceStatus.OK)
+                place.findPlaceFromQuery(request, function(results, status) {
+
+                    console.log("OK: ", google.maps.places.PlacesServiceStatus.OK);
 
                     if (status == google.maps.places.PlacesServiceStatus.OK) {
-                        for (var i = 0; i < results.length; i++) {
-                            createMarker(results[0]);
-                        }
+                        
+                        createMarker(results[0]);
+                        
+                        const placelocation = results[0].geometry.location;
 
-                        var placelocation = results[0].geometry.location
-
-                        const lat = placelocation.lat();
-                        const lng = placelocation.lng();
+                        var lat = placelocation.lat();
+                        var lng = placelocation.lng();
 
                         destination = {
                             lat: lat,
