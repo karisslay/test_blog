@@ -16,10 +16,10 @@
             <script type="text/javascript" src="/static/js/place_types_arrays.js"></script>
         </head>
 
-        <script>
+        <script async>
             document.addEventListener("DOMContentLoaded", load);
 
-            var search_query = "san francisco hike"                   //do this
+            var search_query = "art"                   //do this
 
             var travel_mode
             var driving = getCookie("driving");
@@ -39,8 +39,12 @@
             var destination 
 
             var map
+
             var user_latitude 
             var user_longitude 
+            var user_lat_fixed
+            var user_lng_fixed
+
             var end_location
             var end_coords
            
@@ -119,7 +123,7 @@
 
                 geocoder.geocode(
                     {
-                        'location': destination,
+                        location: destination,
                     },
                     function(results, status) {
                         if (status == 'OK') {
@@ -137,6 +141,8 @@
                                     lat: lat,
                                     lng: lng,
                                 };
+
+                                return end_coords;
                             }
                             else {
                                 console.log("geocide failed 142")
@@ -150,7 +156,6 @@
                 );      
 
                 //console.log(end_coords)
-                console.log("??")
             }
 
 
@@ -178,32 +183,33 @@
             }
 
             function findplace() {
-                console.log("findplace called")
+                console.log("findplace called");
 
-                var place = new google.maps.places.PlacesService();
+                user_lat_fixed = user_latitude.toFixed(9)
+                user_lng_fixed = user_longitude.toFixed(9)
 
                 if (type==undefined) {
                     set_type();
-                }  
+                };  
 
                 var request = {
                     query: search_query,
                     fields: ['name', 'formatted_address', type],
                     locationBias: {
-                        radius: 1000, 
+                        radius: "1000", 
                         center: {
-                            lat: user_latitude,
-                            lng: user_longitude,
+                            lat: user_lat_fixed,
+                            lng: user_lng_fixed,
                         },
                     },
                 
                 };
 
+                var place = new google.maps.places.PlacesService();
+
                 place.findPlaceFromQuery(
                     request, 
                     function(results, status) {
-
-                        // console.log("OK: ", google.maps.places.PlacesServiceStatus.OK);
 
                         if (status == 'OK') {
 
@@ -221,16 +227,18 @@
                                     lng: lng,
                                 };
 
-                                console.log("dest: " + destination) 
+                                console.log("dest: " + destination);
+
+                                return destination;
                             }
                             else {
                                 console.log("findplace failed 227")
                             }
+
                         }
                         else {
                             console.log("findplace failed")
                         }   
-
                     }
                 )
             }   
@@ -340,9 +348,9 @@
 
         <!-- gets map info from google -->
         <script 
-        src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBatSFsLO7FcTGtpxjP7FcAwKaevJb1N_k&libraries=places&callback=myMap" 
-        type="text/javascript"
-        async
+            src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBatSFsLO7FcTGtpxjP7FcAwKaevJb1N_k&libraries=places&callback=myMap" 
+            type="text/javascript"
+            async
         >
         </script>
 
