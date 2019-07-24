@@ -34,5 +34,10 @@
     cursor: not-allowed;
 }
 
-
+.bar_button_active {
+    font-family: "Quicksand";
+    background-color: #99cfff;
+    border-color: #99cfff;
+    color: #003366;
+}
   
