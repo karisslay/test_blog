@@ -262,6 +262,8 @@
 
         };
 
+        var score = 0;
+
         var mount_sutro_open_space_reserve = {
             "type": "outdoor_activity",
             "location": "san_francisco",
@@ -314,7 +316,7 @@
             "budget": "free",
             "transportation": null,
         }	
-        var the_standford_theatre = {
+        var standford_theatre = {
             "type": "indoor_activity",
             "location": "palo_alto",
             "time": null,
@@ -408,7 +410,7 @@
             "transportation": null,
         }	
         
-        var cannon_stanford_house = {
+        var camron_stanford_house = {
             "type": "museum",
             "location": "oakland",
             "time": null,
@@ -494,6 +496,31 @@
             "time": null,
             "budget": "five_twenty",
             "transportation": null,
+        }
+
+        var all_places = [
+
+        baylands_nature_preserve, standford_theatre, evvia_estiatorio, adas_cafe, letter_perfect, museum_of_american_heritage,
+        mount_sutro_open_space_reserve, clockWise_escape_room, little_sheep_mongolian_hot_pot, kitTea_cat_cafe, reliquary,	cable_car_museum,
+        marsh_boardwalk, made_up_theatre,bahn_thai, frodo_joes_petit_cafe, keiths_collectibles_and_books, niles_silent_film_museum,
+        lake_temesal, redwood_bowmen_archery_club, rio_california, luckyduck_bicycle_cafe, owl_and_company_bookshop, camron_stanford_house,
+        ruth_bancroft_garden_and_nursery, lindsay_art_glass, jacks_urban_eats, bagel_street_cafe, vivi, lindsay_wildlife_experience,
+
+        ]
+
+        for (place in all_places) {
+            if (place[location] == user_info[location]) {
+                score += 1;
+            }
+            if (place[time] == user_info[time]) {
+                score += 1;
+            }
+            if (place[budget] == user_info[budget]) {
+                score += 1;
+            }
+            if (place[transportation] == user_info[transportation]) {
+                score += 1;
+            }
         }
 
 
