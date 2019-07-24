@@ -118,19 +118,20 @@
 
                 findplace();
 
-                console.log("back to geocide")
-
                 geocoder.geocode(
                     {
-                        address: destination,
+                        location: destination,
                     },
                     function(results, status) {
                         if (status == google.maps.GeocoderStatus.OK) {
-                            end_location = results[0].geometry.location
+                            end_location = results[0].geometry.location;
 
-                            lat = end_location.lat()
-                            lng = end_location.lng()
-                            
+                            const lat = end_location.lat();
+                            const lng = end_location.lng();
+
+                            console.log(lat)
+                            console.log(lng)
+
                             end_coords = {                                      //PROBLEM
                                 lat: lat,
                                 lng: lng,
@@ -143,7 +144,7 @@
                 );      
 
                 console.log(end_coords)
-                console.log("geocide achieved")
+                //console.log("geocide achieved")
             }
 
 
@@ -184,7 +185,10 @@
                     fields: ['name', 'formatted_address', type],
                     locationBias: {
                         radius: 1000, 
-                        center: {lat: user_latitude, lng: user_longitude}
+                        center: {
+                            lat: user_latitude,
+                            lng: user_longitude,
+                        },
                     },
                 
                 };
@@ -193,18 +197,41 @@
                 place.findPlaceFromQuery(request, function(results, status) {       //what kind of data does this return?
                     console.log("OK: ", google.maps.places.PlacesServiceStatus.OK)
 
-                    if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    if (status == google.maps.places.PlacesServiceStatus.OK) {
                         for (var i = 0; i < results.length; i++) {
-                            createMarker(results[i]);
+                            createMarker(results[0]);
                         }
 
-                        console.log("HERE", results[0])
+                        var placelocation = results[0].geometry.location
 
-                        destination = (results[0]);                               //        <--------    
+                        const lat = placelocation.lat();
+                        const lng = placelocation.lng();
+
+                        destination = {
+                            lat: lat,
+                            lng: lng,
+                        };                                                   //        <--------   
+                        
+                        console.log(destination) 
+                    }
+                    else {
+                        console.log("findplace failed")
                     }
 
                 });
             }   
+
+            function createMarker(place) {
+                var marker3 = new google.maps.Marker({
+                map: map,
+                position: place.geometry.location
+                });
+
+                marker3.setMap(map);
+                console.log("set marker 3")
+               
+            }
+
 
             function set_type() {
                 console.log("set_type called")
@@ -273,7 +300,7 @@
 
                 var request = {                                                        
                     origin: start,
-                    destination: end,
+                    destination: end_coords,
                     travelMode: travel_mode, 
                     unitSystem: google.maps.UnitSystem.IMPERIAL,
 
@@ -288,7 +315,6 @@
                         directionsDisplay.setDirections(result);                           
                     }
                     else {
-                        window.alert("Failed to grab directions, please try again in a a few seconds. ");
                         console.log("directions failed");
                     }
                 });
