@@ -33,6 +33,7 @@
 
         <!-- loads javascript -->
         <link rel="stylesheet" type="text/javascript" href="/static/js/bar_bttns.js" />
+        <link rel="stylesheet" type="text/javascript" href="/static/js/user_info.js" />
 
         <!-- loads python file for bar button clicking -->
         <link rel="stylesheet" type="text/javascript" href="/static/python/bar_bttns.py" />
@@ -247,6 +248,21 @@
 
     <script>
 
+        var type = [];
+
+
+        var user_info = {
+            
+            "type": type,
+            "location": null,
+            "time": null,
+            "budget": null,
+            "transportation": null,
+
+        };
+
+
+
         $.get("/Users/gwc/Work_Space/django/test_blog/blog/static/css/bar_bttns.css", function (resp) {
             // resp now should contain your CSS file content.
         });
@@ -268,7 +284,13 @@
             $("#oakland_button").addClass("disable_bttn");
             $("#fremont_button").addClass("disable_bttn");
             $("#walnut_creek_button").addClass("disable_bttn");
+
+            
         
+            user_info.location = "san_francisco";
+            
+            // console.log(user_info);
+            
         })
 
         $('#palo_alto_button').on("click", function() {
@@ -286,6 +308,8 @@
             $("#oakland_button").addClass("disable_bttn");
             $("#fremont_button").addClass("disable_bttn");
             $("#walnut_creek_button").addClass("disable_bttn");
+
+            user_info.location = "palo_alto";
         
         })
 
@@ -305,6 +329,8 @@
             $("#fremont_button").addClass("disable_bttn");
             $("#walnut_creek_button").addClass("disable_bttn");
         
+            user_info.location = "oakland";
+
         })
 
         $('#fremont_button').on("click", function() {
@@ -323,6 +349,7 @@
             $("#oakland_button").addClass("disable_bttn");
             $("#walnut_creek_button").addClass("disable_bttn");
         
+            user_info.location = "fremont";
         })
 
         $('#walnut_creek_button').on("click", function() {
@@ -342,6 +369,7 @@
             $("#fremont_button").addClass("disable_bttn");
             
         
+            user_info.location = "walnut_creek";
         })
 
         $('#two_hours_button').on("click", function() {
@@ -357,8 +385,13 @@
             $("#four_hours_button").addClass("disable_bttn");
             $("#six_hours_button").addClass("disable_bttn");
             $("#six_plus_hours_button").addClass("disable_bttn");
+
+
+            user_info.time = "two_hours";
         
         })
+
+        
 
         $('#four_hours_button').on("click", function() {
             $(this).removeClass("disable_bttn");
@@ -374,6 +407,8 @@
             $("#six_hours_button").addClass("disable_bttn");
             $("#six_plus_hours_button").addClass("disable_bttn");
         
+            user_info.time = "four_hours";
+
         })
 
         $('#six_hours_button').on("click", function() {
@@ -390,6 +425,9 @@
             $("#four_hours_button").addClass("disable_bttn");
             $("#six_plus_hours_button").addClass("disable_bttn");
         
+
+            user_info.time = "six_hours";
+
         })
 
         $('#six_plus_hours_button').on("click", function() {
@@ -406,6 +444,8 @@
             $("#four_hours_button").addClass("disable_bttn");
             $("#six_hours_button").addClass("disable_bttn");
         
+            user_info.time = "six_plus_hours";
+
         })
 
         $('#free_button').on("click", function() {
@@ -421,6 +461,8 @@
             $("#five_twenty_button").addClass("disable_bttn");
             $("#twenty_fifty_button").addClass("disable_bttn");
             $("#fifty_plus_button").addClass("disable_bttn");
+
+            user_info.budget = "free";
         
         })
 
@@ -438,6 +480,8 @@
             $("#twenty_fifty_button").addClass("disable_bttn");
             $("#fifty_plus_button").addClass("disable_bttn");
         
+            user_info.budget = "five_twenty";
+
         })
 
         $('#twenty_fifty_button').on("click", function() {
@@ -453,6 +497,8 @@
             $("#free_button").addClass("disable_bttn");
             $("#five_twenty_button").addClass("disable_bttn");
             $("#fifty_plus_button").addClass("disable_bttn");
+
+            user_info.budget = "twenty_fifty";
         
         })
 
@@ -468,6 +514,8 @@
             $("#free_button").addClass("disable_bttn");
             $("#five_twenty_button").addClass("disable_bttn");
             $("#twenty_fifty_button").addClass("disable_bttn");
+
+            user_info.budget = "fifty_plus";
         
         })
 
@@ -483,6 +531,8 @@
             $("#car_button").addClass("disable_bttn");
             $("#ferry_button").addClass("disable_bttn");
             $("#public_transportation_button").addClass("disable_bttn");
+
+            user_info.transportation = "walking";
         
         })
 
@@ -498,6 +548,8 @@
             $("#walking_button").addClass("disable_bttn");
             $("#ferry_button").addClass("disable_bttn");
             $("#public_transportation_button").addClass("disable_bttn");
+
+            user_info.transportation = "car";
         
         })
 
@@ -513,6 +565,8 @@
             $("#walking_button").addClass("disable_bttn");
             $("#car_button").addClass("disable_bttn");
             $("#public_transportation_button").addClass("disable_bttn");
+
+            user_info.transportation = "ferry";
         
         })
 
@@ -528,6 +582,8 @@
             $("#walking_button").addClass("disable_bttn");
             $("#car_button").addClass("disable_bttn");
             $("#ferry_button").addClass("disable_bttn");
+
+            user_info.transportation = "public_transportation";
         
         })
 
