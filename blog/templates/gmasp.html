@@ -10,12 +10,11 @@
         <div id="googleMap" style="width:100%;height:400px;"></div>
         
         <head>
-            <link rel="stylesheet" type="text/css" href="/static/css/red_bttns.css" />   
-            <link rel="stylesheet" type="text/css" href="/static/css/find_route_bttn.css" />   
+            <link rel="stylesheet" type="text/css" href="/static/css/red_bttns.css" /> 
+            <link rel="stylesheet" type="text/css" href="/static/css/find_route_bttn.css" /> 
             <script type="text/javascript" src="/static/js/cookies.js"></script>
             <script type="text/javascript" src="/static/js/place_types_arrays.js"></script>
         </head>
-        
 
         <script>
             document.addEventListener("DOMContentLoaded", load);
@@ -120,23 +119,29 @@
 
                 geocoder.geocode(
                     {
-                        location: destination,
+                        'location': destination,
                     },
                     function(results, status) {
-                        if (status == google.maps.GeocoderStatus.OK) {
-                           
-                            end_location = results[0].geometry.location;
+                        if (status == 'OK') {
+                            if(results[0]) {
 
-                            const lat = end_location.lat();
-                            const lng = end_location.lng();
+                                end_location = results[0].geometry.location;
 
-                            console.log(lat);
-                            console.log(lng);
+                                const lat = end_location.lat();
+                                const lng = end_location.lng();
 
-                            end_coords = {                                      //PROBLEM
-                                lat: lat,
-                                lng: lng,
-                            };
+                                console.log(lat);
+                                console.log(lng);
+
+                                end_coords = {                             
+                                    lat: lat,
+                                    lng: lng,
+                                };
+                            }
+                            else {
+                                console.log("geocide failed 142")
+                            }
+
                         }
                         else {
                             console.log("geocide failed")
@@ -194,38 +199,46 @@
                 
                 };
 
+                place.findPlaceFromQuery(
+                    request, 
+                    function(results, status) {
 
-                place.findPlaceFromQuery(request, function(results, status) {
+                        // console.log("OK: ", google.maps.places.PlacesServiceStatus.OK);
 
-                    console.log("OK: ", google.maps.places.PlacesServiceStatus.OK);
+                        if (status == 'OK') {
 
-                    if (status == google.maps.places.PlacesServiceStatus.OK) {
-                        
-                        createMarker(results[0]);
-                        
-                        const placelocation = results[0].geometry.location;
+                            if (results[0]) {
+                            
+                                createMarker(results[0]);
+                                
+                                const placelocation = results[0].geometry.location;
 
-                        var lat = placelocation.lat();
-                        var lng = placelocation.lng();
+                                var lat = placelocation.lat();
+                                var lng = placelocation.lng();
 
-                        destination = {
-                            lat: lat,
-                            lng: lng,
-                        };                                                   //        <--------   
-                        
-                        console.log(destination) 
+                                destination = {
+                                    lat: lat,
+                                    lng: lng,
+                                };
+
+                                console.log("dest: " + destination) 
+                            }
+                            else {
+                                console.log("findplace failed 227")
+                            }
+                        }
+                        else {
+                            console.log("findplace failed")
+                        }   
+
                     }
-                    else {
-                        console.log("findplace failed")
-                    }
-
-                });
+                )
             }   
 
             function createMarker(place) {
                 var marker3 = new google.maps.Marker({
-                map: map,
-                position: place.geometry.location
+                    map: map,
+                    position: place.geometry.location,
                 });
 
                 marker3.setMap(map);
@@ -327,8 +340,9 @@
 
         <!-- gets map info from google -->
         <script 
-        src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBatSFsLO7FcTGtpxjP7FcAwKaevJb1N_k&callback=myMap&libraries=places" 
+        src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBatSFsLO7FcTGtpxjP7FcAwKaevJb1N_k&libraries=places&callback=myMap" 
         type="text/javascript"
+        async
         >
         </script>
 
