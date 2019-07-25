@@ -27,7 +27,31 @@
     position: relative;
     top: 0em;
     margin-right: 3em;
-    margin-top:130px;
+    margin-top:-240px;
+    
+}
+
+.align_right_trans {
+
+    display: flex;
+    margin-left: auto;
+    vertical-align: auto;
+    flex-direction: column;
+    position: relative;
+    top:30px;
+    margin-right: 3em;
+    margin-top:-240px;
+
+    
+}
+
+.btn_align_right_trans {
+
+    display: block;
+    margin-left: auto;
+    margin-right: 3em;
+    margin-top:30px;
+    
     
 }
 
