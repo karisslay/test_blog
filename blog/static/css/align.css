@@ -3,12 +3,14 @@
     display: flex; 
 
     vertical-align: auto;
+    position: relative;
 
     /* creates columns */
     flex-direction: column;
 
     /* creates a margin */
     margin-left: 3em;
+    margin-right: 3em;
     
     margin-top:130px;
     
@@ -23,7 +25,7 @@
     vertical-align: auto;
     flex-direction: column;
     position: relative;
-    top: -24em;
+    top: 0em;
     margin-right: 3em;
     margin-top:130px;
     
