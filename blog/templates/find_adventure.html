@@ -294,7 +294,6 @@
 
         var type = [];
 
-
         var user_info = {
             
             "type": type,
@@ -322,24 +321,6 @@
                 "budget": "twenty_fifty",
                 "transportation": null,
             },
-        // }
-
-        // var mount_sutro_open_space_reserve = {
-        //     "type": "outdoor_activity",
-        //     "location": "san_francisco",
-        //     "radius": null,
-        //     "budget": "free",
-        //     "transportation": null,
-        // }	
-
-        // var clockWise_escape_room = {
-        //     "type": "indoor_activity",
-        //     "location": "san_francisco",
-        //     "radius": null,
-        //     "budget": "twenty_fifty",
-        //     "transportation": null,
-        // }	
-            // },
             "little_sheep_mongolian_hot_pot": {
             "type": "restaurant",
             "location": "san_francisco",
@@ -555,14 +536,15 @@
             "budget": "five_twenty",
             "transportation": null,
             },
+        }
 
-        letall_places = [
-            baylands_nature_preserve, standford_theatre, evvia_estiatorio, adas_cafe, letter_perfect, museum_of_american_heritage,
-            mount_sutro_open_space_reserve, clockWise_escape_room, little_sheep_mongolian_hot_pot, kitTea_cat_cafe, reliquary,	cable_car_museum,
-            marsh_boardwalk, made_up_theatre, bahn_thai, frodo_joes_petit_cafe, keiths_collectibles_and_books, niles_silent_film_museum,
-            lake_temescal, redwood_bowmen_archery_club, rio_california, luckyduck_bicycle_cafe, owl_and_company_bookshop, camron_stanford_house,
-            ruth_bancroft_garden_and_nursery, lindsay_art_glass, jacks_urban_eats, bagel_street_cafe, vici, lindsay_wildlife_experience,
-        ]
+        // letall_places = [
+        //     baylands_nature_preserve, standford_theatre, evvia_estiatorio, adas_cafe, letter_perfect, museum_of_american_heritage,
+        //     mount_sutro_open_space_reserve, clockWise_escape_room, little_sheep_mongolian_hot_pot, kitTea_cat_cafe, reliquary,	cable_car_museum,
+        //     marsh_boardwalk, made_up_theatre, bahn_thai, frodo_joes_petit_cafe, keiths_collectibles_and_books, niles_silent_film_museum,
+        //     lake_temescal, redwood_bowmen_archery_club, rio_california, luckyduck_bicycle_cafe, owl_and_company_bookshop, camron_stanford_house,
+        //     ruth_bancroft_garden_and_nursery, lindsay_art_glass, jacks_urban_eats, bagel_street_cafe, vici, lindsay_wildlife_experience,
+        // ]
 
         $.get("/Users/gwc/Work_Space/django/test_blog/blog/static/css/bar_bttns.css", function (resp) {
             // resp now should contain your CSS file content.
@@ -921,10 +903,12 @@
                 }
             }
 
-
+            console.log(top_result)
 
         
         })
+
+
         var highest_score = location_scores[0];
         for (score in location_scores) {
             if (location_scores[score] > highest_score) {
