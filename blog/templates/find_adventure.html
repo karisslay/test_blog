@@ -284,7 +284,7 @@
         </div> -->
 
         <div>
-            <a id="find_my_adv_bttn" a href= http://127.0.0.1:8000/gmasp/ class="btn btn_red_custom center find_my_adv">
+            <a id="find_my_adv_bttn" class="btn btn_red_custom center find_my_adv">
                 Find My Adventure!
             </a>
         </div>
@@ -306,6 +306,23 @@
         };
 
         let location_scores = {};
+
+        const places = {
+            "mount_sutro_open_space_reserve": {
+                "type": "outdoor_activity",
+                "location": "san_francisco",
+                "radius": null,
+                "budget": "free",
+                "transportation": null,
+            },
+            "clockWise_escape_room": {
+                "type": "indoor_activity",
+                "location": "san_francisco",
+                "radius": null,
+                "budget": "twenty_fifty",
+                "transportation": null,
+            },
+        }
 
         var mount_sutro_open_space_reserve = {
             "type": "outdoor_activity",
@@ -875,32 +892,40 @@
 
         $('#find_my_adv_bttn').on("click", function() {
 
-            for (place of all_places) {
-                console.log("Place: ", place)
-
+            for (let [name, place_data] of Object.entries(places)) {
                 let score = 0
 
-                if (place["location"] == user_info["location"]) {
+                if (place_data["location"] == user_info["location"]) {
                     score += 1;
                 }
-                if (place["radius"] == user_info["radius"]) {
+                if (place_data["radius"] == user_info["radius"]) {
                     score += 1;
                 }
-                if (place["budget"] == user_info["budget"]) {
+                if (place_data["budget"] == user_info["budget"]) {
                     score += 1;
                 }
-                if (place["transportation"] == user_info["transportation"]) {
+                if (place_data["transportation"] == user_info["transportation"]) {
                     score += 1;
                 }
 
-                console.log(place["location"], score)
-
-                location_scores[place["location"]] = score
+                location_scores[name] = score
             }
 
-            console.log(location_scores);
+            const top_result = {
+                "name": "",
+                "score": -1,
+            }
+
+            for (let [name, score] of Object.entries(location_scores)) {
+                if (score > top_result["score"]) {
+                    top_result["name"] = name
+                    top_result["score"] = score
+                }
+            }
 
             
+
+            window.location.replace("http://127.0.0.1:8000/aboutus/");
         })
     </script>
 
