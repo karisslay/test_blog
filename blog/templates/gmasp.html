@@ -34,9 +34,7 @@
             var cafe = getCookie("cafe");
             var shopping = getCookie("shopping");
             var museum = getCookie("museum");
-            // console.log(museum);
 
-            var destination = bagel_street_cafe_latlng
 
             var baylands_nature_preserve_latlng = {
                 lat:Number(37.433682),
@@ -115,8 +113,8 @@
                 lng:Number(-122.268629),
             }
             var bagel_street_cafe_latlng = {
-                lat:Number(37.926202),
-                lng:Number(-122.014746),
+                lat: 37.926202,
+                lng: -122.014746,
             }
             var letter_perfect_latlng = {
                 lat:Number(37.446888),
@@ -159,10 +157,7 @@
                 lng:Number(-122.075685),
             }
 
-
-
-
-
+            var destination = bagel_street_cafe_latlng
 
             var map
 
@@ -201,7 +196,7 @@
 
                 user_pos_marker();
 
-                geocide();
+                // geocide();
 
             }
 
@@ -242,42 +237,43 @@
                 
             }
 
-            function geocide() {
-                console.log("geocide called")
-                var geocoder = new google.maps.Geocoder()
+            // function geocide() {
+            //     console.log("geocide called")
+            //     var geocoder = new google.maps.Geocoder()
 
-                //findplace();
+            //     //findplace();
 
-                geocoder.geocode(
-                    {
-                        location: destination,
-                    },
-                    function(results, status) {
-                        if (status == 'OK') {
+            //     geocoder.geocode(
+            //         {
+            //             address: destination,
+            //         },
+            //         function(results, status) {
+            //             if (status == 'OK') {
 
-                            end_location = results[0].geometry.location;
+            //                 end_location = results[0].geometry.location;
 
-                            const lat = end_location.lat();
-                            const lng = end_location.lng();
+            //                 const lat = end_location.lat();
+            //                 const lng = end_location.lng();
 
-                            console.log(lat);
-                            console.log(lng);
+            //                 console.log(lat);
+            //                 console.log(lng);
 
-                            end_coords = {                             
-                                lat: lat,
-                                lng: lng,
-                            };
+            //                 end_coords = {                             
+            //                     lat: lat,
+            //                     lng: lng,
+            //                 };
 
-                            return end_coords;
+            //                 return end_coords;
                             
-                        }
-                        else {
-                            console.log("geocide failed")
-                        }
-                    },
-                );      
+            //             }
+            //             else {
+            //                 console.log(status)
+            //                 console.log("geocide failed")
+            //             }
+            //         },
+            //     );      
 
-            }
+            // }
 
 
             function getCookie(cname) {
@@ -353,46 +349,46 @@
             //     )
             // }   
 
-            function createMarker(place) {
-                var marker3 = new google.maps.Marker({
-                    map: map,
-                    position: destination,
-                });
+            // function createMarker(place) {
+            //     var marker3 = new google.maps.Marker({
+            //         map: map,
+            //         position: destination,
+            //     });
 
-                marker3.setMap(map);
-                console.log("set marker 3")
+            //     marker3.setMap(map);
+            //     console.log("set marker 3")
                
-            }
+            // }
 
 
-            function set_type() {
-                console.log("set_type called")
-                if (outdoor_activity=='true') {
-                    //psuedorandom pick a type from a list 
-                    type = pass;
-                }
-                else if (indoor_activity=='true') {
-                    type = pass;
-                }
-                else if (restaurant=='true') {
-                    type = pass;
-                }
-                else if (cafe=='true') {
-                    type = pass;
-                }
-                else if (shopping=='true') {
-                    type = pass;
-                }
-                else if (museum=='true') {
-                    type = 'museum';
-                }
-                else {
-                    console.log("set_type failed")
-                }
+            // function set_type() {
+            //     console.log("set_type called")
+            //     if (outdoor_activity=='true') {
+            //         //psuedorandom pick a type from a list 
+            //         type = pass;
+            //     }
+            //     else if (indoor_activity=='true') {
+            //         type = pass;
+            //     }
+            //     else if (restaurant=='true') {
+            //         type = pass;
+            //     }
+            //     else if (cafe=='true') {
+            //         type = pass;
+            //     }
+            //     else if (shopping=='true') {
+            //         type = pass;
+            //     }
+            //     else if (museum=='true') {
+            //         type = 'museum';
+            //     }
+            //     else {
+            //         console.log("set_type failed")
+            //     }
 
-                console.log("type is " + type)
+            //     console.log("type is " + type)
                 
-            }
+            // }
 
 
             function settravelmode() {
@@ -420,19 +416,22 @@
                 var directionsService = new google.maps.DirectionsService();
                 var directionsDisplay = new google.maps.DirectionsRenderer();        
 
-                geocide();
+                //geocide();
 
                 var start = {
                     lat: user_latitude,
                     lng: user_longitude,
                 }
-                var end = end_coords;
+
+                var end = destination;
 
                 settravelmode();
 
+                console.log(end)
+
                 var request = {                                                        
                     origin: start,
-                    destination: end_coords,
+                    destination: end,
                     travelMode: travel_mode, 
                     unitSystem: google.maps.UnitSystem.IMPERIAL,
 
@@ -448,6 +447,7 @@
                     }
                     else {
                         console.log("directions failed");
+                        console.log(status)
                     }
                 });
                 
