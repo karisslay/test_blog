@@ -6,7 +6,7 @@ document.cookie = "cafe=false"
 document.cookie = "shopping=false"
 document.cookie = "museum=true"
 
-document.cookie = name +"=" + value
+// document.cookie = name +"=" + value
 
 //location
 document.cookie = "san_francisco=false"

@@ -16,7 +16,7 @@
             <script type="text/javascript" src="/static/js/place_types_arrays.js"></script>
         </head>
 
-        <script async>
+        <script>
             document.addEventListener("DOMContentLoaded", load);
 
             var search_query = "art"                   //do this
@@ -36,7 +36,133 @@
             var museum = getCookie("museum");
             // console.log(museum);
 
-            var destination 
+            var destination = bagel_street_cafe_latlng
+
+            var baylands_nature_preserve_latlng = {
+                lat:Number(37.433682),
+                lng:Number(-122.099901),
+            }
+            var mt_sutro_open_space_reserve_latlng = {
+                lat:Number(37.759738),
+                lng:Number(-122.457835),
+            }
+            var Marsh_Boardwalk_Coyote_Hills_Regional_Park_latlng = {
+                lat:Number(37.557309),
+                lng:Number(-122.094886),
+            }
+            var lake_temesal_latlng = {
+                lat:Number(37.846707),
+                lng:Number(-122.230808),
+            }
+            var TheRuthBancroftGardenandNursery_latlng = {
+                lat:Number(37.923715),
+                lng:Number(-122.036703),
+            }
+            var the_standford_theatre_latlng = {
+                lat:Number(37.445642),
+                lng:Number(-122.162677),
+            }
+            var clockwise_escape_room_latlng = {
+                lat:Number(37.781045),
+                lng:Number(-122.411550),
+            }
+            var madeup_theatre_latlng = {
+                lat:Number(37.532898),
+                lng:Number(-121.959360),
+            }
+            var redwood_bowmen_archery_club_latlng = {
+                lat:Number(37.818835),
+                lng:Number(-122.178962),
+            }
+            var lindsay_art_glass_latlng = {
+                lat:Number(38.049198),
+                lng:Number(-122.158673),
+            }
+            var Evvia_Estiatorio_latlng= {
+                lat:Number(37.445231),
+                lng:Number(-122.163789),
+            }
+            var little_sheep_mongolian_hotpot_latlng = {
+                lat:Number(37.787455),
+                lng:Number(-122.410103),
+            }
+            var bahn_thai_latlng = {
+                lat:Number(37.548581),
+                lng:Number(-121.986942),
+            }
+            var Rio_california_latlng = {
+                lat:Number(37.805820),
+                lng:Number(-122.277356),
+            }
+            var jacks_urban_eats_latlng = {
+                lat:Number(37.928289),
+                lng:Number(-122.016888),
+            }
+            var adas_cafe_latlng = {
+                lat:Number(37.422246),
+                lng:Number(-122.113175),
+            }
+            var kittea_cat_cafe_latlng = {
+                lat:Number(37.773977),
+                lng:Number(-122.422201),
+            }
+            var frodo_joes_petit_cafe_latlng = {
+                lat:Number(37.553264),
+                lng:Number(-121.978239),
+            }
+            var luckyduck_bicycle_cafe_latlng = {
+                lat:Number(37.801776),
+                lng:Number(-122.268629),
+            }
+            var bagel_street_cafe_latlng = {
+                lat:Number(37.926202),
+                lng:Number(-122.014746),
+            }
+            var letter_perfect_latlng = {
+                lat:Number(37.446888),
+                lng:Number(-122.160466),
+            }
+            var reliquary_latlng = {
+                lat:Number(37.776688),
+                lng:Number(-122.425435),
+            }
+            var keiths_collectibles_and_books_latlng= {
+                lat:Number(37.576739),
+                lng:Number(-121.978547),
+            }
+            var owl_and_co_bookshop_latlng = {
+                lat:Number(37.825419),
+                lng:Number(-122.254063),
+            }
+            var vivi_latlng = {
+                lat:Number(37.902360),
+                lng:Number(-122.065056),
+            }
+            var museum_of_american_heritage_lat_lng= {
+                lat:Number(37.444531),
+                lng:Number(-122.157454),
+            }
+            var cabel_car_museum_latlng = {
+                lat:Number(37.794631),
+                lng:Number(-122.411559),
+            }
+            var niles_silent_film_museum_latlng = {
+                lat:Number(37.577096),
+                lng:Number(-121.980150),
+            }
+            var camron_stanford_house_latlng = {
+                lat:Number(37.801475),
+                lng:Number(-122.262278),
+            }
+            var lindsay_wildlife_museum_latlng = {
+                lat:Number(37.923632),
+                lng:Number(-122.075685),
+            }
+
+
+
+
+
 
             var map
 
@@ -66,14 +192,15 @@
                 user_longitude = position.coords.longitude;
 
                 const pos = {
-                    lat: user_latitude,
-                    lng: user_longitude,
-                }
+                    lat: Number(user_latitude),
+                    lng: Number(user_longitude),
+                };
 
                 map.setCenter(pos);
                 console.log(pos)
 
                 user_pos_marker();
+
                 geocide();
 
             }
@@ -119,7 +246,7 @@
                 console.log("geocide called")
                 var geocoder = new google.maps.Geocoder()
 
-                findplace();
+                //findplace();
 
                 geocoder.geocode(
                     {
@@ -127,27 +254,22 @@
                     },
                     function(results, status) {
                         if (status == 'OK') {
-                            if(results[0]) {
 
-                                end_location = results[0].geometry.location;
+                            end_location = results[0].geometry.location;
 
-                                const lat = end_location.lat();
-                                const lng = end_location.lng();
+                            const lat = end_location.lat();
+                            const lng = end_location.lng();
 
-                                console.log(lat);
-                                console.log(lng);
+                            console.log(lat);
+                            console.log(lng);
 
-                                end_coords = {                             
-                                    lat: lat,
-                                    lng: lng,
-                                };
+                            end_coords = {                             
+                                lat: lat,
+                                lng: lng,
+                            };
 
-                                return end_coords;
-                            }
-                            else {
-                                console.log("geocide failed 142")
-                            }
-
+                            return end_coords;
+                            
                         }
                         else {
                             console.log("geocide failed")
@@ -155,7 +277,6 @@
                     },
                 );      
 
-                //console.log(end_coords)
             }
 
 
@@ -182,71 +303,60 @@
                 return "";
             }
 
-            function findplace() {
-                console.log("findplace called");
+            // function findplace() {
+            //     console.log("findplace called");
 
-                user_lat_fixed = user_latitude.toFixed(9)
-                user_lng_fixed = user_longitude.toFixed(9)
+            //     user_lat_fixed = user_latitude.toFixed(7)
+            //     user_lng_fixed = user_longitude.toFixed(7)
 
-                if (type==undefined) {
-                    set_type();
-                };  
+            //     if (type==undefined) {
+            //         set_type();
+            //     };  
 
-                var request = {
-                    query: search_query,
-                    fields: ['name', 'formatted_address', type],
-                    locationBias: {
-                        radius: "1000", 
-                        center: {
-                            lat: user_lat_fixed,
-                            lng: user_lng_fixed,
-                        },
-                    },
-                
-                };
+            //     var request = {
+            //         query: search_query,
+            //         fields: ['name', 'formatted_address', 'type'],
+                    
+                    
+            //     };
 
-                var place = new google.maps.places.PlacesService();
+            //     var place = new google.maps.places.PlacesService(map);
 
-                place.findPlaceFromQuery(
-                    request, 
-                    function(results, status) {
+            //     place.findPlaceFromQuery(
+            //         request, 
+            //         function(results, status) {
 
-                        if (status == 'OK') {
+            //             if (status == 'OK') {
+                    
+            //                 const placelocation = results[0].geometry.location;
 
-                            if (results[0]) {
-                            
-                                createMarker(results[0]);
-                                
-                                const placelocation = results[0].geometry.location;
+            //                 var lat = placelocation.lat();
+            //                 var lng = placelocation.lng();
 
-                                var lat = placelocation.lat();
-                                var lng = placelocation.lng();
+            //                 destination = {
+            //                     lat: lat,
+            //                     lng: lng,
+            //                 };
 
-                                destination = {
-                                    lat: lat,
-                                    lng: lng,
-                                };
+            //                 createMarker(results[0]);
 
-                                console.log("dest: " + destination);
+            //                 console.log("dest: " + destination);
 
-                                return destination;
-                            }
-                            else {
-                                console.log("findplace failed 227")
-                            }
-
-                        }
-                        else {
-                            console.log("findplace failed")
-                        }   
-                    }
-                )
-            }   
+            //                 return destination;
+    
+            //             }
+            //             else {
+            //                 console.log("findplace failed")
+            //             }
+                           
+            //         }
+            //     )
+            // }   
 
             function createMarker(place) {
                 var marker3 = new google.maps.Marker({
                     map: map,
-                    position: place.geometry.location,
+                    position: destination,
                 });
 
                 marker3.setMap(map);
