@@ -284,7 +284,7 @@
         </div> -->
 
         <div>
-            <a id="find_my_adv_bttn" class="btn btn_red_custom center find_my_adv">
+            <a id="find_my_adv_bttn" a href= http://127.0.0.1:8000/aboutus/ class="btn btn_red_custom center find_my_adv">
                 Find My Adventure!
             </a>
         </div>
@@ -299,20 +299,18 @@
             
             "type": type,
             "location": null,
-            "time": null,
+            "radius": null,
             "budget": null,
             "transportation": null,
 
         };
 
-        var score = 0;
-
-        var list_of_scores = [];
+        let location_scores = {};
 
         var mount_sutro_open_space_reserve = {
             "type": "outdoor_activity",
             "location": "san_francisco",
-            "time": null,
+            "radius": null,
             "budget": "free",
             "transportation": null,
         }	
@@ -320,7 +318,7 @@
         var clockWise_escape_room = {
             "type": "indoor_activity",
             "location": "san_francisco",
-            "time": null,
+            "radius": null,
             "budget": "twenty_fifty",
             "transportation": null,
         }	
@@ -328,28 +326,28 @@
         var little_sheep_mongolian_hot_pot = {
             "type": "restaurant",
             "location": "san_francisco",
-            "time": null,
+            "radius": null,
             "budget": "twenty_fifty",
             "transportation": null,
         }	
         var kitTea_cat_cafe	= {
             "type": "cafe",
             "location": "san_francisco",
-            "time": null,
+            "radius": null,
             "budget": "five_twenty",
             "transportation": null,
         }
         var reliquary = {
             "type": "shopping",
             "location": null,
-            "time": null,
+            "radius": null,
             "budget": "fifty_plus",
             "transportation": null,
         }	
         var cable_car_museum = {
             "type": "museum",
             "location": "san_francisco",
-            "time": null,
+            "radius": null,
             "budget": "free",
             "transportation": null,
         }
@@ -357,21 +355,21 @@
         var baylands_nature_preserve = {
             "type": "outdoor_activity",
             "location": "palo_alto",
-            "time": null,
+            "radius": null,
             "budget": "free",
             "transportation": null,
         }	
         var standford_theatre = {
             "type": "indoor_activity",
             "location": "palo_alto",
-            "time": null,
+            "radius": null,
             "budget": "five_twenty",
             "transportation": null,
         }	
-        var evvia_equation = {
+        var evvia_estiatorio = {
             "type": "restaurant",
             "location": "palo_alto",
-            "time": null,
+            "radius": null,
             "budget": "twenty_fifty",
             "transportation": null,
         }	
@@ -379,7 +377,7 @@
         var adas_cafe = {
             "type": "cafe",
             "location": "palo_alto",
-            "time": null,
+            "radius": null,
             "budget": "five_twenty",
             "transportation": null,
         }	
@@ -387,14 +385,14 @@
         var letter_perfect = {
             "type": "shopping",
             "location": "palo_alto",
-            "time": null,
+            "radius": null,
             "budget": "five_twenty",
             "transportation": null,
         }	
         var museum_of_american_heritage = {
             "type": "museum",
             "location": "palo_alto",
-            "time": null,
+            "radius": null,
             "budget": "five_twenty",
             "transportation": null,
         }
@@ -402,7 +400,7 @@
         var marsh_boardwalk = {
             "type": "outdoor_activity",
             "location": "fremont",
-            "time": null,
+            "radius": null,
             "budget": "free",
             "transportation": null,
         } 
@@ -410,7 +408,7 @@
         var made_up_theatre	= {
             "type": "indoor_activity",
             "location": "fremont",
-            "time": null,
+            "radius": null,
             "budget": "five_twenty",
             "transportation": null,
         }
@@ -418,7 +416,7 @@
         var lake_temescal = {
             "type": "outdoor_activity",
             "location": "oakland",
-            "time": null,
+            "radius": null,
             "budget": "free",
             "transportation": null,
         }	
@@ -426,7 +424,7 @@
         var redwood_bowmen_archery_club	= {
             "type": "indoor_activity",
             "location": "oakland",
-            "time": null,
+            "radius": null,
             "budget": "five_twenty",
             "transportation": null,
         }
@@ -434,7 +432,7 @@
         var rio_california = {
             "type": "restaurant",
             "location": "oakland",
-            "time": null,
+            "radius": null,
             "budget": "five_twenty",
             "transportation": null,
         }	
@@ -442,7 +440,7 @@
         var luckyduck_bicycle_cafe = {
             "type": "cafe",
             "location": "oakland",
-            "time": null,
+            "radius": null,
             "budget": "five_twenty",
             "transportation": null,
         }	
@@ -450,7 +448,7 @@
         var owl_and_company_bookshop = {
             "type": "shopping",
             "location": "oakland",
-            "time": null,
+            "radius": null,
             "budget": "five_twenty",
             "transportation": null,
         }	
@@ -458,7 +456,7 @@
         var camron_stanford_house = {
             "type": "museum",
             "location": "oakland",
-            "time": null,
+            "radius": null,
             "budget": "five_twenty",
             "transportation": null,
         }
@@ -466,7 +464,7 @@
         var bahn_thai = {
             "type": "restaurant",
             "location": "fremont",
-            "time": null,
+            "radius": null,
             "budget": "five_twenty",
             "transportation": null,
         }	
@@ -474,7 +472,7 @@
         var frodo_joes_petit_cafe = {
             "type": "cafe",
             "location": "fremont",
-            "time": null,
+            "radius": null,
             "budget": "five_twentys",
             "transportation": null,
         }	
@@ -482,7 +480,7 @@
         var keiths_collectibles_and_books = {
             "type": "shopping",
             "location": "fremont",
-            "time": null,
+            "radius": null,
             "budget": "five_twenty",
             "transportation": null,
         }	
@@ -490,7 +488,7 @@
         var niles_silent_film_museum = {
             "type": "museum",
             "location": "fremont",
-            "time": null,
+            "radius": null,
             "budget": "five_twenty",
             "transportation": null,
         }
@@ -498,7 +496,7 @@
         var ruth_bancroft_garden_and_nursery = {
             "type": "outdoor_activity",
             "location": "walnut_creek",
-            "time": null,
+            "radius": null,
             "budget": "five_twenty",
             "transportation": null,
         }	
@@ -506,7 +504,7 @@
         var lindsay_art_glass = {
             "type": "indoor_activity",
             "location": "walnut_creek",
-            "time": null,
+            "radius": null,
             "budget": "fifty_plus",
             "transportation": null,
         }	
@@ -514,7 +512,7 @@
         var jacks_urban_eats = {
             "type": "restaurant",
             "location": "walnut_creek",
-            "time": null,
+            "radius": null,
             "budget": "five_twenty",
             "transportation": null,
         }	
@@ -522,7 +520,7 @@
         var bagel_street_cafe = {
             "type": "cafe",
             "location": "walnut_creek",
-            "time": null,
+            "radius": null,
             "budget": "five_twenty",
             "transportation": null,
         }	
@@ -530,7 +528,7 @@
         var vivi = {
             "type": "shopping",
             "location": "walnut_creek",
-            "time": null,
+            "radius": null,
             "budget": "twenty_fifty",
             "transportation": null,
         }	
@@ -538,27 +536,19 @@
         var lindsay_wildlife_experience = {
             "type": "museum",
             "location": "walnut_creek",
-            "time": null,
+            "radius": null,
             "budget": "five_twenty",
             "transportation": null,
         }
 
-        var all_places = [
-
+        let all_places = [
             baylands_nature_preserve, standford_theatre, evvia_estiatorio, adas_cafe, letter_perfect, museum_of_american_heritage,
             mount_sutro_open_space_reserve, clockWise_escape_room, little_sheep_mongolian_hot_pot, kitTea_cat_cafe, reliquary,	cable_car_museum,
             marsh_boardwalk, made_up_theatre, bahn_thai, frodo_joes_petit_cafe, keiths_collectibles_and_books, niles_silent_film_museum,
-            lake_temesal, redwood_bowmen_archery_club, rio_california, luckyduck_bicycle_cafe, owl_and_company_bookshop, camron_stanford_house,
+            lake_temescal, redwood_bowmen_archery_club, rio_california, luckyduck_bicycle_cafe, owl_and_company_bookshop, camron_stanford_house,
             ruth_bancroft_garden_and_nursery, lindsay_art_glass, jacks_urban_eats, bagel_street_cafe, vivi, lindsay_wildlife_experience,
-
         ]
 
-        </script>
-
-    
-
-
-        <script>
         $.get("/Users/gwc/Work_Space/django/test_blog/blog/static/css/bar_bttns.css", function (resp) {
             // resp now should contain your CSS file content.
         });
@@ -683,7 +673,7 @@
             $("#six_plus_hours_button").addClass("disable_bttn");
 
 
-            user_info.time = "two_hours";
+            user_info.radius = "two_hours";
         
         })
 
@@ -703,7 +693,7 @@
             $("#six_hours_button").addClass("disable_bttn");
             $("#six_plus_hours_button").addClass("disable_bttn");
         
-            user_info.time = "four_hours";
+            user_info.radius = "four_hours";
 
         })
 
@@ -722,7 +712,7 @@
             $("#six_plus_hours_button").addClass("disable_bttn");
         
 
-            user_info.time = "six_hours";
+            user_info.radius = "six_hours";
 
         })
 
@@ -740,7 +730,7 @@
             $("#four_hours_button").addClass("disable_bttn");
             $("#six_hours_button").addClass("disable_bttn");
         
-            user_info.time = "six_plus_hours";
+            user_info.radius = "six_plus_hours";
 
         })
 
@@ -884,30 +874,34 @@
         })
 
         $('#find_my_adv_bttn').on("click", function() {
-            for (place in all_places) {
-                if (place[location] == user_info[location]) {
+
+            for (place of all_places) {
+                console.log("Place: ", place)
+
+                let score = 0
+
+                if (place["location"] == user_info["location"]) {
                     score += 1;
                 }
-                if (place[time] == user_info[time]) {
+                if (place["radius"] == user_info["radius"]) {
                     score += 1;
                 }
-                if (place[budget] == user_info[budget]) {
+                if (place["budget"] == user_info["budget"]) {
                     score += 1;
                 }
-                if (place[transportation] == user_info[transportation]) {
+                if (place["transportation"] == user_info["transportation"]) {
                     score += 1;
                 }
 
-                list_of_scores.append(score);
+                console.log(place["location"], score)
 
-                console.log(list_of_scores);
+                location_scores[place["location"]] = score
             }
-        
+
+            console.log(location_scores);
+
+            
         })
-
-        console.log(user_info);
-
-
     </script>
 
     {% endblock content %}
