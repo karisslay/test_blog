@@ -189,8 +189,8 @@
         </div>
 
 
-        <divtime>
-            <!-- Time buttons group: -->
+        <!-- <divtime>
+            
             <img
             src="/static/Radius.png"
             alt="Radius" 
@@ -223,7 +223,7 @@
             </divlast>
 
 
-        </divtime>
+        </divtime> -->
         
         <!-- The second row: Budget and Transportation -->
         <div id="second_row" >
@@ -927,6 +927,12 @@
 
             window.location.replace("http://127.0.0.1:8000/aboutus/");
         })
+        var highest_score = location_scores[0];
+        for (score in location_scores) {
+            if (location_scores[score] > highest_score) {
+                highest_score = location_scores[score];
+            }
+        }
     </script>
 
     {% endblock content %}
