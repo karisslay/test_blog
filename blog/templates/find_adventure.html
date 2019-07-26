@@ -38,6 +38,9 @@
         <!-- loads python file for bar button clicking -->
         <link rel="stylesheet" type="text/javascript" href="/static/python/bar_bttns.py" />
 
+        <!-- imports cookies -->
+        <link rel="stylesheet" type="text/javascript" href="/static/js/cookies.js" />
+
         
     </head>
 
@@ -908,6 +911,11 @@
                 highest_score = location_scores[score];
             }
         }
+        // document.cookie = "highest_score = true";
+        function setCookie(cname, cvalue, exdays) {
+            cname = highest_score
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            }
     </script>
 
     {% endblock content %}
