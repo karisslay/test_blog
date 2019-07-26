@@ -303,6 +303,8 @@
             var end_location
             var end_coords
 
+            var dest_called = false
+
             function load() {
                 // console.log(window.localStorage.getItem("top_location"));
                 set_dest(window.localStorage.getItem("top_location"));
@@ -349,6 +351,11 @@
                 );
                 marker1.setMap(map); 
 
+                while (dest_called==true) {
+                    marker1.setMap(null);
+
+                }
+
             }
 
             function end_pos_marker() {
@@ -360,6 +367,11 @@
 
                 marker2.setMap(map);                                                   
                 console.log("set destination marker")
+
+                while (dest_called==true) {
+                    marker2.setMap(null);
+
+                }
 
             }
 
@@ -591,6 +603,8 @@
                         console.log(status)
                     }
                 });
+
+                dest_called = true
                 
             }
 
