@@ -317,12 +317,14 @@
             var dest_called = false
 
             function load() {
+                console.log("load")
                 // console.log(window.localStorage.getItem("top_location"));
                 set_dest(window.localStorage.getItem("top_location"));
                 getLocation();
             }
 
-            function getLocation() {                                       
+            function getLocation() {  
+                console.log("getLocation")                                     
                 if (navigator.geolocation) { // Supported
                     setTimeout((navigator.geolocation.getCurrentPosition(getPosition)), 200) 
                 }
@@ -331,7 +333,8 @@
                 }
             }
 
-            function getPosition(position) {                                        //gets position of user from browser //
+            function getPosition(position) {
+                console.log("getPosition")                                        //gets position of user from browser //
                 user_latitude = position.coords.latitude;
                 user_longitude = position.coords.longitude;
 
