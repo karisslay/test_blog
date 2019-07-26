@@ -313,8 +313,9 @@
 
             function getLocation() {                                       
                 if (navigator.geolocation) { // Supported
-                    navigator.geolocation.getCurrentPosition(getPosition) 
-                } else { // Not supported
+                    setTimeout((navigator.geolocation.getCurrentPosition(getPosition)), 200) 
+                }
+                else { // Not supported
                     alert("Oops! This browser does not support HTML Geolocation.");
                 }
             }
@@ -331,9 +332,9 @@
                 //map.setCenter(pos);
                 console.log(pos);
 
-                setTimeout( end_pos_marker(), 200);
+                setTimeout(user_pos_marker(), 500);
 
-                user_pos_marker();
+                setTimeout(end_pos_marker(), 900);
 
                 // geocide();
 
@@ -350,6 +351,7 @@
                 },
                 );
                 marker1.setMap(map); 
+                console.log("set user marker")
 
                 while (dest_called==true) {
                     marker1.setMap(null);
