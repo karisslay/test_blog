@@ -9,10 +9,6 @@
         <h1 style="font-family: quicksand;">Map</h1>
         <h1 style="font-family: quicksand; font-size:24px;">These are your results:</h1>
 
-        
-
-
-
 
         <div id="googleMap" style="width:100%;height:400px;"></div>
         
@@ -27,7 +23,7 @@
         <script>
             document.addEventListener("DOMContentLoaded", load);
 
-            // var search_query = "art"                   //do this
+            // var search_query = "art"                   
 
             var travel_mode
             var driving = getCookie("driving");
@@ -43,36 +39,36 @@
             // var shopping = getCookie("shopping");
             // var museum = getCookie("museum");
 
-            var baylands_nature_preserve_ = getCookie("baylands_nature_preserve");
-            var mt_sutro_open_space_reserve_ = getCookie("mount_sutro_open_space_reserve");
-            var Marsh_Boardwalk_Coyote_Hills_Regional_Park_ = getCookie("marsh_boardwalk");
-            var lake_temesal_= getCookie("lake_temesal");
-            var TheRuthBancroftGardenandNursery_ = getCookie("ruth_bancroft_garden_and_nursery");
-            var the_standford_theatre_ = getCookie("stanford_theatre");
-            var clockwise_escape_room_ = getCookie("clockwise_escape_room");
-            var madeup_theatre_ = getCookie("made_up_theatre");
-            var redwood_bowmen_archery_club_ = getCookie("redwood_bowmen_archery_club");
-            var lindsay_art_glass_ = getCookie("lindsay_art_glass");
-            var Evvia_Estiatorio_ = getCookie("evvia_estiatorio");
-            var little_sheep_mongolian_hotpot_ = getCookie("little_sheep_mongolian_hotpot");
-            var bahn_thai_ = getCookie("bahn_thai");
-            var rio_california_ = getCookie("rio_california");
-            var jacks_urban_eats_ = getCookie("jacks_urban_eats");
-            var adas_cafe_ = getCookie("adas_cafe");
-            var kittea_cat_cafe_ = getCookie("kittea_cat_cafe");
-            var frodo_joes_petit_cafe_ = getCookie("frodo_joes_petit_cafe");
-            var luckyduck_bicycle_cafe_ = getCookie("luckyduck_bicycle_cafe");
-            var bagel_street_cafe_ = getCookie("bagel_street_cafe");
-            var letter_perfect_ = getCookie("letter_perfect");
-            var reliquary_ = getCookie("reliquary");
-            var keiths_collectibles_and_books_ = getCookie("keiths_collectibles_and_books");
-            var owl_and_co_bookshop_ = getCookie("owl_and_company_bookshop");
-            var vici_ = getCookie("vici");
-            var museum_of_american_heritage_ = getCookie("museum_of_american_heritage");
-            var cable_car_museum_ = getCookie("cable_car_museum");
-            var niles_silent_film_museum_ = getCookie("niles_silent_film_museum");
-            var camron_stanford_house_ = getCookie("camron_stanford_house");
-            var lindsay_wildlife_museum_ = getCookie("lindsay_wildlife_experience");
+            // var baylands_nature_preserve_ = getCookie("baylands_nature_preserve");
+            // var mt_sutro_open_space_reserve_ = getCookie("mount_sutro_open_space_reserve");
+            // var Marsh_Boardwalk_Coyote_Hills_Regional_Park_ = getCookie("marsh_boardwalk");
+            // var lake_temesal_= getCookie("lake_temesal");
+            // var TheRuthBancroftGardenandNursery_ = getCookie("ruth_bancroft_garden_and_nursery");
+            // var the_standford_theatre_ = getCookie("stanford_theatre");
+            // var clockwise_escape_room_ = getCookie("clockwise_escape_room");
+            // var madeup_theatre_ = getCookie("made_up_theatre");
+            // var redwood_bowmen_archery_club_ = getCookie("redwood_bowmen_archery_club");
+            // var lindsay_art_glass_ = getCookie("lindsay_art_glass");
+            // var Evvia_Estiatorio_ = getCookie("evvia_estiatorio");
+            // var little_sheep_mongolian_hotpot_ = getCookie("little_sheep_mongolian_hotpot");
+            // var bahn_thai_ = getCookie("bahn_thai");
+            // var rio_california_ = getCookie("rio_california");
+            // var jacks_urban_eats_ = getCookie("jacks_urban_eats");
+            // var adas_cafe_ = getCookie("adas_cafe");
+            // var kittea_cat_cafe_ = getCookie("kittea_cat_cafe");
+            // var frodo_joes_petit_cafe_ = getCookie("frodo_joes_petit_cafe");
+            // var luckyduck_bicycle_cafe_ = getCookie("luckyduck_bicycle_cafe");
+            // var bagel_street_cafe_ = getCookie("bagel_street_cafe");
+            // var letter_perfect_ = getCookie("letter_perfect");
+            // var reliquary_ = getCookie("reliquary");
+            // var keiths_collectibles_and_books_ = getCookie("keiths_collectibles_and_books");
+            // var owl_and_co_bookshop_ = getCookie("owl_and_company_bookshop");
+            // var vici_ = getCookie("vici");
+            // var museum_of_american_heritage_ = getCookie("museum_of_american_heritage");
+            // var cable_car_museum_ = getCookie("cable_car_museum");
+            // var niles_silent_film_museum_ = getCookie("niles_silent_film_museum");
+            // var camron_stanford_house_ = getCookie("camron_stanford_house");
+            // var lindsay_wildlife_museum_ = getCookie("lindsay_wildlife_experience");
 
 
             var baylands_nature_preserve_latlng = {
@@ -171,7 +167,7 @@
                 lat:Number(37.825419),
                 lng:Number(-122.254063),
             }
-            var vivi_latlng = {
+            var vici_latlng = {
                 lat:Number(37.902360),
                 lng:Number(-122.065056),
             }
@@ -198,102 +194,103 @@
 
             var destination
 
-            function set_dest() {
-                if (baylands_nature_preserve_== "true") {
+            function set_dest(location_name) {
+
+                if (location_name == 'baylands_nature_preserve') {
                     destination = baylands_nature_preserve_latlng;
                 }
-                else if (mt_sutro_open_space_reserve_ == "true") {
+                else if (location_name == 'mount_sutro_open_space_reserve') {
                     destination = mt_sutro_open_space_reserve_latlng;
                 }
-                else if (Marsh_Boardwalk_Coyote_Hills_Regional_Park_ == "true") {
+                else if (location_name == 'marsh_boardwalk') {
                     destination = Marsh_Boardwalk_Coyote_Hills_Regional_Park_latlng;
                 }
-                else if (lake_temesal_ == "true") {
+                else if (location_name == 'lake_temesal') {
                     destination = lake_temesal_latlng;
                 }
-                else if (TheRuthBancroftGardenandNursery_ == "true") {
+                else if (location_name == 'ruth_bancroft_garden_and_nursery') {
                     destination = TheRuthBancroftGardenandNursery_latlng;
                 }
-                else if (the_standford_theatre_ == "true") {
+                else if (location_name == 'stanford_theatre') {
                     destination = the_standford_theatre_latlng;
                 }
-                else if (clockwise_escape_room_ == "true") {
+                else if (location_name == 'clockwise_escape_room') {
                     destination = clockwise_escape_room_latlng;
                 }
-                else if (madeup_theatre_ == "true") {
+                else if (location_name == 'made_up_theatre') {
                     destination = madeup_theatre_latlng;
                 }
-                else if (redwood_bowmen_archery_club_ == "true") {
+                else if (location_name == 'redwood_bowmen_archery_club') {
                     destination = redwood_bowmen_archery_club_latlng;
                 }
-                else if (lindsay_art_glass_ == "true") {
+                else if (location_name == 'lindsay_art_glass') {
                     destination = lindsay_art_glass_latlng;
                 }
-                else if (Evvia_Estiatorio_ == "true") {
+                else if (location_name == 'evvia_estiatorio') {
                     destination = Evvia_Estiatorio_latlng;
                 }
-                else if (little_sheep_mongolian_hotpot_ == "true") {
+                else if (location_name == 'little_sheep_mongolian_hotpot') {
                     destination = little_sheep_mongolian_hotpot_latlng;
                 }
-                else if (bahn_thai_ == "true") {
+                else if (location_name == 'bahn_thai') {
                     destination = bahn_thai_latlng;
                 }
-                else if (rio_california_ == "true") {
+                else if (location_name == 'rio_california') {
                     destination = Rio_california_latlng;
                 }
-                else if (jacks_urban_eats_ == "true") {
+                else if (location_name == 'jacks_urban_eats') {
                     destination = jacks_urban_eats_latlng;
                 }
-                else if (adas_cafe_ == "true") {
+                else if (location_name == 'adas_cafe') {
                     destination = adas_cafe_latlng;
                 }
-                else if (kittea_cat_cafe_ == "true") {
+                else if (location_name == 'kittea_cat_cafe') {
                     destination = kittea_cat_cafe_latlng;
                 }
-                else if (frodo_joes_petit_cafe_ == "true") {
+                else if (location_name == 'frodo_joes_petit_cafe') {
                     destination = frodo_joes_petit_cafe_latlng;
                 }
-                else if (luckyduck_bicycle_cafe_ == "true") {
+                else if (location_name == 'luckyduck_bicycle_cafe') {
                     destination = luckyduck_bicycle_cafe_latlng;
                 }
-                else if (bagel_street_cafe_ == "true") {
+                else if (location_name == 'bagel_street_cafe') {
                     destination = bagel_street_cafe_latlng;
                 }
-                else if (letter_perfect_ == "true") {
+                else if (location_name == 'letter_perfect') {
                     destination = letter_perfect_latlng;
                 }
-                else if (reliquary_ == "true") {
+                else if (location_name == 'reliquary') {
                     destination = reliquary_latlng;
                 }
-                else if (keiths_collectibles_and_books_ == "true") {
+                else if (location_name == 'keiths_collectibles_and_books') {
                     destination = keiths_collectibles_and_books_latlng;
                 }
-                else if (owl_and_co_bookshop_ == "true") {
+                else if (location_name == 'owl_and_company_bookshop') {
                     destination = owl_and_co_bookshop_latlng;
                 }
-                else if (vici_ == "true") {
-                    destination = vici_;
+                else if (location_name == 'vici') {
+                    destination = vici_latlng;
                 }
-                else if (museum_of_american_heritage_ == "true") {
+                else if (location_name == 'museum_of_american_heritage') {
                     destination = museum_of_american_heritage_lat_lng;
                 }
-                else if (cable_car_museum_ == "true") {
+                else if (location_name == 'cable_car_museum') {
                     destination = cabel_car_museum_latlng;
                 }
-                else if (niles_silent_film_museum_ == "true") {
+                else if (location_name == 'niles_silent_film_museum') {
                     destination = niles_silent_film_museum_latlng;
                 }
-                else if (camron_stanford_house_ == "true") {
+                else if (location_name == 'camron_stanford_house') {
                     destination = camron_stanford_house_latlng;
                 }
-                else if (lindsay_wildlife_museum_ == "true") {
+                else if (location_name == 'lindsay_wildlife_experience') {
                     destination = lindsay_wildlife_museum_latlng;
-                }
-                else {
-                    console.log("could not get destination")
                 }
                 return destination
 
+
+
+                
             }
 
             var map
@@ -307,8 +304,9 @@
             var end_coords
 
             function load() {
-                set_dest();
-                setTimeout(getLocation(), 100);
+                // console.log(window.localStorage.getItem("top_location"));
+                set_dest(window.localStorage.getItem("top_location"));
+                getLocation();
             }
 
             function getLocation() {                                       
@@ -364,6 +362,10 @@
                 console.log("set destination marker")
 
             }
+
+            // function initmap() {
+            //     setTimeout(myMap(), 400);
+            // }
 
             function myMap() {
                 

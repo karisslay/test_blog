@@ -286,6 +286,8 @@
 
     <script>
 
+        window.Globals = {}
+
         var type = [];
 
         var user_info = {
@@ -897,31 +899,37 @@
                 }
             }
 
-            console.log(top_result)
-            window.location.replace("http://127.0.0.1:8000/gmasp");
+            const top_location = getLocationWithHighestScore()
 
-
-        
+            window.localStorage.setItem("top_location", top_location)
+            window.location.replace("http://127.0.0.1:8000/gmasp")
         })
 
 
-        var highest_score = location_scores[0];
-        for (score in location_scores) {
-            if (location_scores[score] > highest_score) {
-                highest_score = location_scores[score];
-            }
-            if (location_scores[score] == highest_score) {
-                var choice = Math.random(1,3);
-                if (choice == 1) {
-                    highest_score = location_scores[score];
+
+        function getLocationWithHighestScore() {
+            var highest_score = -1;
+            let top_location = undefined
+ 
+            for (let [location_name, score] of Object.entries(location_scores)) {
+                if (score == highest_score) {
+                    if (Math.random(1, 3) === 1) {
+                        highest_score = score
+                        top_location = location_name
+                    }
+                } else if (score > highest_score) {
+                    highest_score = score;
+                    top_location = location_name
                 }
             }
+
+            return top_location
         }
-        // document.cookie = "highest_score = true";
-        function setCookie(cname, cvalue, exdays) {
-            cname = highest_score
-            document.cookie = cname + "=" + "true" + ";";
-            }
+
+        function setCookie(top_location) {
+            document.cookie = top_location + "=" + "true" + "; domain=http://127.0.0.1:8000/;path=/";
+        }
+
     </script>
 
     {% endblock content %}
