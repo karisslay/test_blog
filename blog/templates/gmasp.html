@@ -7,9 +7,20 @@
     <body>
 
         <h1 style="font-family: quicksand;">Map</h1>
-        <h1 style="font-family: quicksand; font-size:24px;">These are your results:</h1>
+        <h1 style="font-family: quicksand; font-size:24px;">Here is your result!</h1>
 
+        <p id="result" style="font-family: quicksand"></p>
 
+        <script>
+            function write_result() {
+                const top_location = window.localStorage.getItem("top_location");
+                document.getElementById("result").innerHTML = top_location;
+            }
+                
+            write_result();
+        </script>
+        
+        
         <div id="googleMap" style="width:100%;height:400px;"></div>
         
         <head>
